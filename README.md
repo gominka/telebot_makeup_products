@@ -29,6 +29,7 @@
 7. Реализация команды /name, которая позволяет производить поиск по конкретному товару
 8. Реализация команды /history.
 9. Обработка ошибок 
+10. Реализация команды(/favourites)
 
 
 API Endpoint = http://makeup-api.herokuapp.com/api/v1/products.json
