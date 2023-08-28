@@ -7,8 +7,21 @@ else:
     load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-RAPID_API_KEY = os.getenv("RAPID_API_KEY")
+
 DEFAULT_COMMANDS = (
     ("start", "Запустить бота"),
-    ("help", "Вывести справку")
+    ("info", "Вывести справку"),
+)
+
+CUSTOM_COMMANDS = (
+    ("brand", "Вывести cписок брендов"),
+    ("name", "Вывести список продуктов"),
+    ("tag", "Вывести список тэгов"),
+)
+
+ADDITIONAL_COMMANDS = (
+    ("low", "Сравнение товаров"),
+    ("high", "Сравнение товаров"),
+    ("history", "Посмотреть историю запросов"),
+    ("favourites", "Добавить в избранное"),
 )
