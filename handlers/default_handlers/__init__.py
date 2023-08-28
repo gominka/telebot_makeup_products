@@ -1,2 +1,2 @@
-from . import commands
+from . import def_handler
 from . import echo

@@ -12,7 +12,7 @@ text_messages = {
 
 
 @bot.message_handler(commands=['info'])
-def on_info(message):
+def bot_info(message):
     bot.reply_to(message, text_messages['info'])
     text = [f"/{command} - {desk}" for command, desk in CUSTOM_COMMANDS]
     bot.send_message(message.from_user.id, "\n".join(text))
@@ -21,3 +21,4 @@ def on_info(message):
 @bot.message_handler(commands=['start'])
 def bot_start(message: Message):
     bot.reply_to(message, text_messages['start'].format(name=message.from_user.first_name))
+
