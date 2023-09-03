@@ -1,9 +1,12 @@
+import os
+
 from peewee import *
 import datetime
+from dotenv import load_dotenv, find_dotenv
 
 DATABASE_NAME = "make_up_bot"
-USER = "root"
-PASSWORD = "root"
+USER = os.getenv("USER_DB")
+PASSWORD = os.getenv("PASSWORD_DB")
 dbhandle = MySQLDatabase(DATABASE_NAME, user=USER,
                          password=PASSWORD,
                          host='localhost')
