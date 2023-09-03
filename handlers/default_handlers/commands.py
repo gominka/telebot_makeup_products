@@ -8,6 +8,8 @@ text_messages = {
         u'Добро пожаловать {name}!\n\n',
     'info':
         u'Список доступных команд: \n'
+        u'{commands} \n'
+
 }
 
 
@@ -15,7 +17,7 @@ text_messages = {
 def bot_info(message):
     bot.reply_to(message, text_messages['info'])
     text = [f"/{command} - {desk}" for command, desk in CUSTOM_COMMANDS]
-    bot.send_message(message.from_user.id, "\n".join(text))
+    bot.reply_to(message, text_messages['info'].format(commands="\n".join(text)))
 
 
 @bot.message_handler(commands=['start'])
