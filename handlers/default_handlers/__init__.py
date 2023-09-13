@@ -1,3 +1,3 @@
 from . import commands
-from . import brands
+from . import brand
 from . import echo
