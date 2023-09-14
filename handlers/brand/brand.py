@@ -10,8 +10,7 @@ querystring = {"brand"}
 response = requests.get(base_url)
 data = response.json()
 
-
-brands = [item['brand'] for item in data]
+brands = [item['brand'] for item in data if item['brand'] is not None]
 
 
 with open('brand.txt', 'w+') as f:
@@ -28,13 +27,12 @@ def bot_info(message: Message, ) -> None:
     bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=markup)
 
 
-
 @bot.callback_query_handler(func=lambda call: True)
 def answer(call):
     if call.data == "list":
         with open('brand.txt', 'r') as f:
             a = [line.strip() for line in f]
-            print(a)
-            bot.send_message(call.message.chat.id, a)
+            text = [f"/{brand}" for brand in a]
+            bot.send_message(call.message.chat.id, '\n'.join(map(str, sorted(a))))
     elif call.data == "find":
         bot.send_message(call.message.chat.id, "Текст")
