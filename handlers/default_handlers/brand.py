@@ -26,7 +26,7 @@ def bot_info(message: Message, ) -> None:
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def answer(call):
+def answer(call: types.CallbackQuery):
     if call.data == "list":
         with open('brand.txt', 'r') as f:
             a = [line.strip() for line in f]
@@ -38,7 +38,7 @@ def answer(call):
         bot.register_next_step_handler(msgBrand, set_brand)
 
 
-def set_brand(message):
+def set_brand(message: types.Message):
     user_brand = message.text.lower()
     user_id = message.from_user.id
     with open('brand.txt') as f:
