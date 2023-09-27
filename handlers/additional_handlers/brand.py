@@ -41,7 +41,6 @@ def answer(call: types.CallbackQuery):
 
 def set_brand(message: types.Message):
     user_brand = message.text.lower()
-    user_id = message.from_user.id
     with open('brand.txt') as f:
         if user_brand in f.read():
             fl = list(filter(lambda x: x['brand'] == user_brand, data))
