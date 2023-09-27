@@ -8,11 +8,11 @@ from loader import bot
 @bot.message_handler(commands=['custom'])
 def custom(message: types.Message) -> None:
     markup = types.InlineKeyboardMarkup(row_width=1)
-    btnPrice = types.InlineKeyboardButton(text='Фильтр по цене',
+    btn3 = types.InlineKeyboardButton(text='Фильтр по цене',
                                           callback_data="custom_price")
-    btnRat = types.InlineKeyboardButton(text='Фильтр по рейтингу',
+    btn4 = types.InlineKeyboardButton(text='Фильтр по рейтингу',
                                         callback_data='custom_rating')
-    markup.add(btnPrice, btnRat)
+    markup.add(btn3, btn4)
     bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=markup)
 
 

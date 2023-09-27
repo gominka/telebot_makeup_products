@@ -1,6 +1,5 @@
 from telebot import types
 
-
 from loader import bot
 
 
@@ -12,21 +11,24 @@ def high(message: types.Message):
     :return:
     """
     markup = types.InlineKeyboardMarkup(row_width=1)
-    btnPrice = types.InlineKeyboardButton(text='Поиск по цене',
-                                          callback_data="price")
-    btnRat = types.InlineKeyboardButton(text='Поиск по рейтингу',
-                                        callback_data='rating')
-    markup.add(btnPrice, btnRat)
+    max_price = types.InlineKeyboardButton(text='Поиск по цене',
+                                           callback_data="max_price")
+    max_rating = types.InlineKeyboardButton(text='Поиск по рейтингу',
+                                            callback_data='max_rating')
+    markup.add(max_price, max_rating)
     bot.send_message(message.chat.id, 'Выберите условие поиска:', reply_markup=markup)
 
 
-@bot.callback_query_handler(func=lambda call: call.data == ['price', 'rating'])
+@bot.callback_query_handler(func=lambda call: call.data == 'max_price')
 def callback_max(call: types.CallbackQuery):
-    maxMean = bot.send_message(call.message.chat.id, "Выберите максимальное значение: ")
-    if call.data == "price":
-        bot.register_next_step_handler(maxMean, find_price)
-    elif call.data == "rating":
-        bot.register_next_step_handler(maxMean, find_rat)
+    max_value = bot.send_message(call.message.chat.id, "Выберите максимальное значение: ")
+    bot.register_next_step_handler(max_value, find_price)
+
+
+@bot.callback_query_handler(func=lambda call: call.data == 'max_rating')
+def callback_max(call: types.CallbackQuery):
+    max_value = bot.send_message(call.message.chat.id, "Выберите максимальное значение: ")
+    bot.register_next_step_handler(max_value, find_rat)
 
 
 def find_price(message: types.Message):

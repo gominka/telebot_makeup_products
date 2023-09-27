@@ -1,7 +1,6 @@
 from loader import bot
 
 from telebot import types
-from telebot.types import Message
 
 import requests
 
@@ -15,27 +14,29 @@ with open('brand.txt', 'w+') as f:
 
 
 @bot.message_handler(commands=['brand'])
-def bot_info(message: Message, ) -> None:
+def bot_info(message: types.Message) -> None:
     markup = types.InlineKeyboardMarkup(row_width=1)
-    listBtn = types.InlineKeyboardButton(text='Вывести список всех брендов',
-                                         callback_data="list")
-    findBtn = types.InlineKeyboardButton(text='Поиск по бренду',
-                                         callback_data='find')
-    markup.add(listBtn, findBtn)
+    list_brand = types.InlineKeyboardButton(text='Вывести список всех брендов',
+                                            callback_data="list_brand")
+    brand_search = types.InlineKeyboardButton(text='Поиск по бренду',
+                                              callback_data='brand_search')
+    markup.add(list_brand, brand_search)
     bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=markup)
 
 
-@bot.callback_query_handler(func=lambda call: True)
+@bot.callback_query_handler(func=lambda call: call.data == "list_brand")
 def answer(call: types.CallbackQuery):
-    if call.data == "list":
-        with open('brand.txt', 'r') as f:
-            a = [line.strip() for line in f]
-            bot.send_message(call.message.chat.id,
-                             '\n'.join(map(str, sorted(a))))
-    elif call.data == "find":
-        cid = call.message.chat.id
-        msgBrand = bot.send_message(cid, "Введите бренд: ")
-        bot.register_next_step_handler(msgBrand, set_brand)
+    with open('brand.txt', 'r') as f:
+        a = [line.strip() for line in f]
+        bot.send_message(call.message.chat.id,
+                         '\n'.join(map(str, sorted(a))))
+
+
+@bot.callback_query_handler(func=lambda call: call.data == "brand_search")
+def answer(call: types.CallbackQuery):
+    cid = call.message.chat.id
+    msg_brand = bot.send_message(cid, "Введите бренд: ")
+    bot.register_next_step_handler(msg_brand, set_brand)
 
 
 def set_brand(message: types.Message):
