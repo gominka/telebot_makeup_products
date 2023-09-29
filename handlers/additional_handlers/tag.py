@@ -24,11 +24,11 @@ with open('tags.txt', 'w+') as f:
 @bot.message_handler(commands=['tag'])
 def bot_info(message: types.Message) -> None:
     markup = types.InlineKeyboardMarkup(row_width=1)
-    list_brand = types.InlineKeyboardButton(text='Вывести список всех тэгов',
-                                            callback_data="list_tag")
-    brand_search = types.InlineKeyboardButton(text='Поиск по бренду',
-                                              callback_data='tag_search')
-    markup.add(list_brand, brand_search)
+    list_tag = types.InlineKeyboardButton(text='Вывести список всех тэгов',
+                                          callback_data="list_tag")
+    tag_search = types.InlineKeyboardButton(text='Поиск по бренду',
+                                            callback_data='tag_search')
+    markup.add(list_tag, tag_search)
     bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=markup)
 
 
@@ -43,5 +43,14 @@ def answer(call: types.CallbackQuery):
 @bot.callback_query_handler(func=lambda call: call.data == "tag_search")
 def answer(call: types.CallbackQuery):
     cid = call.message.chat.id
-    msg_brand = bot.send_message(cid, "Введите тэг: ")
+    msg_tag = bot.send_message(cid, "Введите тэг: ")
+    bot.register_next_step_handler(msg_tag, set_tag)
 
+
+def set_tag(message: types.Message):
+    user_tag = message.text.lower()
+    with open('tags.txt') as f:
+        if user_tag in f.read():
+            bot.reply_to(message, "true")
+        else:
+            bot.reply_to(message, "false")
