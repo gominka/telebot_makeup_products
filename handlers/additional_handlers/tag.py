@@ -22,7 +22,7 @@ with open('tags.txt', 'w+') as f:
 
 
 @bot.message_handler(commands=['tag'])
-def bot_info(message: types.Message) -> None:
+def tag(message: types.Message) -> None:
     markup = types.InlineKeyboardMarkup(row_width=1)
     list_tag = types.InlineKeyboardButton(text='Вывести список всех тэгов',
                                           callback_data="list_tag")

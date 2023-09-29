@@ -4,21 +4,24 @@ from telebot import types
 
 import requests
 
-base_url = "http://makeup-api.herokuapp.com/api/v1/products.json"
-response = requests.get(base_url)
-data = response.json()
-brands = []
-for item in data:
-    if item['brand'] is not None:
-        if item['brand'] not in brands:
-            brands.append(item['brand'])
-with open('brand.txt', 'w+') as f:
-    for items in brands:
-        f.write('%s\n' % items)
+
+def brand_handler():
+    base_url = "http://makeup-api.herokuapp.com/api/v1/products.json"
+    response = requests.get(base_url)
+    data = response.json()
+    brands = []
+    for item in data:
+        if item['brand'] is not None:
+            if item['brand'] not in brands:
+                brands.append(item['brand'])
+    with open('brand.txt', 'w+') as f:
+        for items in brands:
+            f.write('%s\n' % items)
 
 
 @bot.message_handler(commands=['brand'])
-def bot_info(message: types.Message) -> None:
+def brand(message: types.Message) -> None:
+    brand_handler()
     markup = types.InlineKeyboardMarkup(row_width=1)
     list_brand = types.InlineKeyboardButton(text='Вывести список всех брендов',
                                             callback_data="list_brand")
@@ -45,6 +48,7 @@ def answer(call: types.CallbackQuery):
 
 def set_brand(message: types.Message):
     user_brand = message.text.lower()
+    global data
     with open('brand.txt') as f:
         if user_brand in f.read():
             fl = list(filter(lambda x: x['brand'] == user_brand, data))
