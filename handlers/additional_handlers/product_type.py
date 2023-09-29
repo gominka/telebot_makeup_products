@@ -9,7 +9,7 @@ response = requests.get(base_url)
 data = response.json()
 brands = []
 for item in data:
-    if item['brand'] is not None:
+    if item['product_type'] is not None:
         if item['brand'] not in brands:
             brands.append(item['brand'])
 with open('brand.txt', 'w+') as f:
