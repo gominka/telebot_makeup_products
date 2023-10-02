@@ -11,17 +11,17 @@ text_messages = {
         u'{message.from_user.first_name}, '
         u'в нашем телеграм боте \n\n'
         u'Выберите условие для поиска',
-    'info':
+    'help':
         u'Список доступных команд: \n'
         u'{commands} \n'
 }
 
 
-@bot.message_handler(commands=['info'])
+@bot.message_handler(commands=['help'])
 def bot_info(message: types.Message):
     print('1')
     text = [f"/{command} - {desk}" for command, desk in CUSTOM_COMMANDS]
-    bot.reply_to(message, text_messages['info'].format(commands="\n".join(text)))
+    bot.reply_to(message, text_messages['help'].format(commands="\n".join(text)))
 
 
 @bot.message_handler(commands=['start'])
