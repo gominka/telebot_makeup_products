@@ -12,6 +12,7 @@ text_messages = {
 
 @bot.message_handler(commands=['info'])
 def bot_info(message):
+    print('1')
     text = [f"/{command} - {desk}" for command, desk in CUSTOM_COMMANDS]
     bot.reply_to(message, text_messages['info'].format(commands="\n".join(text)))
 

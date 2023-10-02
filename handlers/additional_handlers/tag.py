@@ -26,7 +26,7 @@ def tag(message: types.Message) -> None:
     markup = types.InlineKeyboardMarkup(row_width=1)
     list_tag = types.InlineKeyboardButton(text='Вывести список всех тэгов',
                                           callback_data="list_tag")
-    tag_search = types.InlineKeyboardButton(text='Поиск по бренду',
+    tag_search = types.InlineKeyboardButton(text='Поиск по tag',
                                             callback_data='tag_search')
     markup.add(list_tag, tag_search)
     bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=markup)
