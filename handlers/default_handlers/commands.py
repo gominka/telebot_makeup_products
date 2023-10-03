@@ -4,11 +4,13 @@ from loader import bot
 
 from config_data.config import CUSTOM_COMMANDS
 from keyboards.reply.start_btn import btn_start
+from handlers.additional_handlers import brand, tag
+
 
 text_messages = {
     'start':
         u'Приветствуем Вас, '
-        u'{message.from_user.first_name}, '
+        u'{name}, '
         u'в нашем телеграм боте \n\n'
         u'Выберите условие для поиска',
     'help':
@@ -19,14 +21,19 @@ text_messages = {
 
 @bot.message_handler(commands=['help'])
 def bot_info(message: types.Message):
-    print('1')
     text = [f"/{command} - {desk}" for command, desk in CUSTOM_COMMANDS]
     bot.reply_to(message, text_messages['help'].format(commands="\n".join(text)))
 
 
 @bot.message_handler(commands=['start'])
 def bot_start(message: types.Message):
-    bot.send_message(message.chat.id, f'Приветствуем Вас, '
-                                      f'{message.from_user.first_name}, '
-                                      f'в нашем телеграм боте \n\n'
-                                      f'Выберите условие для поиска', reply_markup=btn_start)
+    bot.send_message(message.chat.id, text_messages['start'].format(name=message.from_user.first_name), reply_markup=btn_start(message))
+    bot.register_next_step_handler(message, txt)
+
+
+@bot.message_handler(content_types=['text'])
+def txt(message: types.Message):
+    if message.text == "Бренд":
+        brand.brand(message)
+    elif message.text == "Тэг":
+        tag.tag(message)
