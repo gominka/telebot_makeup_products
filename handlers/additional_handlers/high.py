@@ -2,21 +2,37 @@ from telebot import types
 
 from loader import bot
 
+from keyboards.inline.conditions import comparison
+
 
 @bot.message_handler(commands=['high'])
 def high(message: types.Message):
-    """
-    Команда, выводящая значения по заданному максимальному условию, стоимости или рейтингу
-    :param message:
-    :return:
-    """
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    max_price = types.InlineKeyboardButton(text='Поиск по цене',
-                                           callback_data="max_price")
-    max_rating = types.InlineKeyboardButton(text='Поиск по рейтингу',
-                                            callback_data='max_rating')
-    markup.add(max_price, max_rating)
-    bot.send_message(message.chat.id, 'Выберите условие поиска:', reply_markup=markup)
+    c = 'max'
+    bot.send_message(message.chat.id, 'Выберите условие поиска:', reply_markup=comparison(c))
+
+
+@bot.message_handler(commands=['low'])
+def low(message: types.Message):
+    c = 'min'
+    bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=comparison(c))
+
+
+@bot.message_handler(commands=['custom'])
+def custom(message: types.Message) -> None:
+    c = 'custom'
+    bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=comparison(c))
+
+
+@bot.callback_query_handler(func=lambda call: call.data == 'min_price')
+def callback_min_price(call: types.CallbackQuery):
+    min_value = bot.send_message(call.message.chat.id, "Выберите минимальное значение: ")
+    bot.register_next_step_handler(min_value, find_price)
+
+
+@bot.callback_query_handler(func=lambda call: call.data == 'min_price')
+def callback_min_rating(call: types.CallbackQuery):
+    min_value = bot.send_message(call.message.chat.id, "Выберите минимальное значение: ")
+    bot.register_next_step_handler(min_value, find_rat)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'max_price')

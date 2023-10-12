@@ -1,5 +1,4 @@
 from . import brand
 from . import tag
-from . import low
+from . import product_type
 from . import high
-from . import custom

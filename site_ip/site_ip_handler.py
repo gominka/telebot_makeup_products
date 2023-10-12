@@ -5,7 +5,6 @@ import requests
 url = "http://makeup-api.herokuapp.com/"
 params = {"brand", "name", "tag_list"}
 response = requests.get("http://makeup-api.herokuapp.com/api/v1/products.json")
-print(response.headers)
 
 
 def _make_response(method: str, url: str, headers: Dict, params: Dict,
