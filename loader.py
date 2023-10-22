@@ -1,5 +1,4 @@
-from telebot import TeleBot
-from telebot.storage import StateMemoryStorage
+from telebot import StateMemoryStorage, TeleBot
 from config_data import config
 
 storage = StateMemoryStorage()

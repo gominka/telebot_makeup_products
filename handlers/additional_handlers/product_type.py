@@ -1,35 +1,28 @@
+
+from handlers.additional_handlers import brand, product_type, tag
 from loader import bot
 
 from telebot import types
 
-from keyboards.inline.main_handler import command_type_markup
-from site_ip.response_brand import types_handler
 
 
-@bot.message_handler(commands=['product_type'])
-def product_type(message: types.Message) -> None:
-    bot.send_message(message.chat.id, 'Выберите опцию:', reply_markup=command_type_markup())
+@bot.callback_query_handler(func=lambda call: call.data == [call.data == "type_search", "typing_search",
+                                                            "list_type", "sec_type", "name"])
+def answer(call: types.CallbackQuery) -> None:
+    if call.data == "type_search":
+        msg_type = bot.send_message(call.message.chat.id, "Введите тип: ")
+        bot.register_next_step_handler(msg_type, product_type.set_type)
+    elif call.data == "list_type":
+        with open('product_type.txt', 'r') as f:
+            a = [line.strip() for line in f]
+            bot.send_message(call.message.chat.id,
+                             '\n'.join(map(str, sorted(a))))
+    elif call.data == "sec_type":
+        product_type.product_type(call.message)
+    elif call.data == "branding_search":
+        msg_type = bot.send_message(call.message.chat.id, "Введите тип: ")
+        bot.register_next_step_handler(msg_type, product_type.set_type)
+    elif call.data == "name":
+        pass
 
 
-@bot.callback_query_handler(func=lambda call: call.data == "list_type")
-def answer(call: types.CallbackQuery):
-    types_handler()
-    with open('product_type.txt', 'r') as f:
-        bot.send_message(call.message.chat.id,
-                         '\n'.join(map(str, sorted([line.strip() for line in f]))))
-
-
-@bot.callback_query_handler(func=lambda call: call.data == "type_search")
-def answer(call: types.CallbackQuery):
-    msg_type = bot.send_message(call.message.chat.id, "Введите тип: ")
-    bot.register_next_step_handler(msg_type, set_type)
-
-
-def set_type(message: types.Message):
-    user_type = message.text.lower()
-    types_handler()
-    with open('product_type.txt') as f:
-        if user_type in f.read():
-            bot.reply_to(message, "true")
-        else:
-            bot.reply_to(message, "false")

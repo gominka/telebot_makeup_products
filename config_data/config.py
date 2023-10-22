@@ -6,6 +6,7 @@ if not find_dotenv():
 else:
     load_dotenv()
 
+DB_NAME = "mydb.db"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 DEFAULT_COMMANDS = (
@@ -23,3 +24,5 @@ CUSTOM_COMMANDS = (
     ("low", "Сравнение товаров"),
     ("high", "Сравнение товаров")
 )
+
+DATE_FORMAT = "%d.%m.%Y"

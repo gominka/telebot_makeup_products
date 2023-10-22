@@ -1,33 +1,46 @@
-import os
+from peewee import (
+    CharField,
+    IntegerField,
+    Model,
+    SqliteDatabase,
+    AutoField,
+    ForeignKeyField
+)
 
-from peewee import *
-import datetime
-from dotenv import load_dotenv, find_dotenv
+from config_data.config import DB_NAME
 
-DATABASE_NAME = "make_up_bot"
-USER = os.getenv("USER_DB")
-PASSWORD = os.getenv("PASSWORD_DB")
-dbhandle = MySQLDatabase(DATABASE_NAME, user=USER,
-                         password=PASSWORD,
-                         host='localhost')
+
+db = SqliteDatabase(DB_NAME)
 
 
 class BaseModel(Model):
-    """Базовая модель для работы с Peewee"""
-
+    """
+    Класс, от которого будут наследоваться все таблицы базы данных
+    """
     class Meta:
-        database = dbhandle
+        database = db
 
 
-class Category(BaseModel):
-    """Класс, для описания таблица в базе"""
-    id = PrimaryKeyField(null=False)  # поле автоматического прироста
-    name = CharField(max_length=100)  # содержит имя пользователя(еп_шв)
+class User(BaseModel):
+    """
+    В классе описываем таблицу в базе данных
+    """
+    user_id = IntegerField(primary_key=True)
+    username = CharField()
+    first_name = CharField()
+    last_name = CharField(null=True)
 
-    # поля timestamp, которые определяют настоящее время по умолчанию
-    created_at = DateTimeField(default=datetime.datetime.now())
-    updated_at = DateTimeField(default=datetime.datetime.now())
 
-    class Meta:
-        db_table = "categories"
-        order_by = ('created_at',)
+class Conditions(BaseModel):
+    """"
+    Модель задачи
+    """
+    cond_id = AutoField()
+    user = ForeignKeyField(User, backref="conditions")
+    brand = CharField()
+    tag = CharField()
+    product_type = CharField()
+
+
+def create_models():
+    db.create_tables(BaseModel.__subclasses__())
