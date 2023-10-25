@@ -1,19 +1,35 @@
 import datetime
 
 from telebot.handler_backends import State, StatesGroup
-from telebot.types import Message
+from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 
 from config_data.config import DATE_FORMAT
 from database.models import Conditions
+from handlers.additional_handlers import brand
 from loader import bot
 
 
 class UserState(StatesGroup):
+    brand = State()
     new_task_title = State()
     new_find_title = State()
     new_task_due_date = State()
     tasks_make_done = State()
     condition_selection = State()
+
+
+@bot.message_handler(state=UserState.brand)
+def brand_condition(message: Message) -> None:
+    print("1")
+    markup = InlineKeyboardMarkup(row_width=1)
+    list_brand = InlineKeyboardButton(text='Поиск товаров по бренду',
+                                      callback_data="")
+    brand_search = InlineKeyboardButton(text='Переход на сайт бренда',
+                                        callback_data='brand_search')
+    markup.add(list_brand, brand_search)
+    bot.send_message(message.chat.id,
+                     "Выберете опцию: ",
+                     reply_markup=markup)
 
 
 @bot.message_handler(state=UserState.new_find_title)
@@ -104,4 +120,3 @@ def process_task_done(message: Message) -> None:
     task.is_done = not task.is_done
     task.save()
     bot.send_message(message.from_user.id, task)
-

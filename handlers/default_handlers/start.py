@@ -7,20 +7,7 @@ from config_data.config import CUSTOM_COMMANDS
 from database.models import User
 from handlers.dictionary import dictionary, emoji
 from loader import bot
-
-
-@bot.message_handler(commands=['help'])
-def bot_info(message: Message):
-    bot.reply_to(message=message,
-                 text=dictionary['started_message']['help'].format(
-                     emoji['brand'],
-                     emoji['highprice'],
-                     emoji['lowprice'],
-                     emoji['highrating'],
-                     emoji['lowrating'],
-                     emoji['custom'],
-                     emoji['history'],
-                    emoji['favourite']))
+from states.custom_states import UserState
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -40,6 +27,7 @@ def handle_start(message: Message) -> None:
             first_name=first_name,
             last_name=last_name,
         )
+        bot.set_state(message.from_user.id, UserState.condition_selection, message.chat.id)
         bot.send_message(chat_id=message.chat.id,
                          text=dictionary['started_message']['start'].format(
                              emoji['brand'],
