@@ -1,6 +1,7 @@
 from keyboa.keyboards import keyboa_maker
 from telebot.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
+from handlers.dictionary import dictionary, emoji
 from loader import bot
 from site_ip.response_brand import brand_handler, main_handler
 
@@ -74,17 +75,23 @@ def brand_condition(call: CallbackQuery) -> None:
     """
     global cond_brand
     user_brand = cond_brand
-    print('1')
-    print(cond_brand)
     if call.data == "branding":
-        msg_brand = bot.send_message(call.message.chat.id, "Введите бренд: ")  # ввести или выбрать
-        bot.register_next_step_handler(msg_brand, set_brand)
+        bot.reply_to(message=call.message,
+                     text=dictionary['message']['brand'].format(
+                         emoji['highprice'],
+                         emoji['lowprice'],
+                         emoji['highrating'],
+                         emoji['lowrating'],
+                         emoji['custom'],
+                         emoji['tag'],
+                         emoji['product_type'],
+                         emoji['name'],
+                         emoji['add'],
+                         emoji['favourite']))
     elif call.data == "web":
         with open('brand.txt') as f:
             if user_brand in f.read():
                 fl = list(filter(lambda x: x['brand'] == user_brand, main_handler()))
-                print(user_brand)
-                print(fl[0])
                 markup = InlineKeyboardMarkup()
                 button1 = InlineKeyboardButton("Перейти на сайт",
                                                url=fl[0]['website_link'])
