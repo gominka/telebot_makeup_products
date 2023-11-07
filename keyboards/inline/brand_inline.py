@@ -1,22 +1,21 @@
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-def brand_inline_btn():
+def main_commands_inline_btn(item):
     """
-    Формирование inline кнопок, при вызове команды /brand
+    Формирование inline кнопок, при вызове основных команд
     :param
     :return: markup
     """
-    markup = InlineKeyboardMarkup(row_width=1)
-    product_brand = InlineKeyboardButton(text='Поиск товара по бренду', #добавление бренда в условие поиска
-                                         callback_data='product_brand')
-    list_brand = InlineKeyboardButton(text='Вывести список всех брендов',
-                                      callback_data="list_brand")
-    brand_search = InlineKeyboardButton(text='Переход на сайт бренда',
-                                        callback_data='brand_search')
 
-    markup.add(list_brand, brand_search, product_brand)
+    markup = InlineKeyboardMarkup(row_width=1)
+    user_selection = InlineKeyboardButton(text='Ввести самостоятельно',
+                                          callback_data='product_{}'.format(item))
+    system_selection = InlineKeyboardButton(text='Выбрать из представленных',
+                                            callback_data='list_{}'.format(item))
+    markup.add(user_selection, system_selection)
     return markup
+
 
 def search_brand_inline_btn():
     """
@@ -24,6 +23,7 @@ def search_brand_inline_btn():
     :param
     :return: markup
     """
+
     markup = InlineKeyboardMarkup(row_width=1)
     list_brand = InlineKeyboardButton(text='Поиск товаров по бренду',
                                       callback_data="branding")

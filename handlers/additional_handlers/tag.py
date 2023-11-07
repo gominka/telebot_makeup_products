@@ -22,20 +22,6 @@ def tags():
         logger.info(f'Создан список тэгов')
 
 
-@bot.message_handler(commands=['tag'])
-def tag(message: Message) -> None:
-    """
-    Обработчик команды, срабатываемый на /brand
-    :param message: Message
-    :return: None
-    """
-    markup = InlineKeyboardMarkup(row_width=1)
-    list_tag = InlineKeyboardButton(text='Вывести список всех тэгов',
-                                    callback_data="list_tag")
-    markup.add(list_tag)
-    bot.send_message(message.chat.id,
-                     "Выберете опцию: ",
-                     reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["tag_search", "list_tag"])
