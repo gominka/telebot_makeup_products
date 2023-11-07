@@ -1,2 +1,2 @@
 from . import main_handler
-from . import comparison
+from . import brand_inline

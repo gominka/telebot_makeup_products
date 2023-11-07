@@ -6,7 +6,7 @@ if not find_dotenv():
 else:
     load_dotenv()
 
-DB_NAME = "mydb.db"
+DB_NAME = "db_tgbot.db"
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 DEFAULT_COMMANDS = (

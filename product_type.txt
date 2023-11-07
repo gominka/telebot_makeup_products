@@ -1,0 +1,10 @@
+lip_liner
+lipstick
+foundation
+eyeliner
+eyeshadow
+blush
+bronzer
+mascara
+eyebrow
+nail_polish
