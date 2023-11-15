@@ -6,12 +6,12 @@ if not find_dotenv():
 else:
     load_dotenv()
 
-DB_NAME = "db_tgbot.db"
+DB_NAME = os.getenv("DB_NAME")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 DEFAULT_COMMANDS = (
-    ("start", "Запустить бота"),
-    ("brand", "Поиск по бренду"),
+    ("start", "Начать поиск сначала"),
+    ("brand", "Выбор бренда"),
     ("tag", "Поиск по тэгам"),
     ("product_type", "Поиск по типу продукта"),
     ("help", "Вывести справку")
@@ -25,10 +25,10 @@ ADDITIONAL_COMMANDS = (
 
 
 CUSTOM_COMMANDS = (
+    # TODO: продумать команды сравнения
+
     ("low", "Сравнение товаров"),
     ("high", "Сравнение товаров"),
     ("custom", "Сортировка по рейтингу/цене"),
 )
 
-
-DATE_FORMAT = "%d.%m.%Y"

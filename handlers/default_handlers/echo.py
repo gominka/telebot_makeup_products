@@ -7,6 +7,7 @@ from loader import bot
 def bot_echo(message: Message):
     """
     Эхо хендлер, куда летят текстовые сообщения без указанного состояния
+
     :param message:
     :return:
     """

@@ -33,6 +33,8 @@ class Conditions(BaseModel):
     """"
     Модель задачи
     """
+    # TODO: продумать
+
     user_id = IntegerField(null=False)
     brand_cond = CharField(null=True)
     tag_cond = CharField(null=True)
@@ -45,8 +47,10 @@ class Conditions(BaseModel):
 
 class ListProducts(BaseModel):
     """"
-    Списки условий
+
     """
+    # TODO: продумать таблицу
+
     brands = CharField(null=True)
     tags = CharField(null=True)
     product_type = CharField(null=True)

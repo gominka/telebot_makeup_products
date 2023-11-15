@@ -1,13 +1,12 @@
 # import datetime
 #
 # from telebot import types, logger
+# from telebot.handler_backends import StatesGroup, State
 # from telebot.types import Message
 #
 # from loader import bot
-# from states.state import UserInputState
-#
-#
-# @bot.message_handler(commands=['high', 'low', 'custom'])
+
+# @bot.message_handler(state="*", commands=['high', 'low', 'custom'])
 # def low_high_handler(message: types.Message) -> None:
 #     """
 #     Обработчик каманд: /high, /low
@@ -15,18 +14,10 @@
 #     :param message: types.Message
 #     :return None
 #     """
-#     bot.set_state(message.chat.id, UserInputState.command)
-#     bot.set_state(message.chat.id, UserInputState.condition_selection)
-#     markup = types.InlineKeyboardMarkup(row_width=1)
-#     price = types.InlineKeyboardButton(text='Поиск по цене',
-#                                        callback_data="price")
-#     rating = types.InlineKeyboardButton(text='Поиск по рейтингу',
-#                                         callback_data='rating')
-#     markup.add(price, rating)
-#     bot.send_message(message.chat.id, 'Выберите условие поиска:',
-#                      reply_markup=markup)
-#     print(message.text)
-#     with bot.retrieve_data(message.chat.id) as data:
+#     bot.set_state(message.chat.id, UserState.command)
+#     bot.set_state(message.chat.id, UserState.condition_selection)
+#
+#     with bot.retrieve_data(message.from_user.id) as data:
 #         data['condition'] = message.text
 #         logger.info('Выбранное условие' + message.text + f'User_id {message.chat.id}')
 #         # Cоздание запроса
@@ -38,7 +29,7 @@
 #     bot.register_next_step_handler(min_value, find_price)
 #
 #
-# @bot.message_handler(state=UserInputState.condition_selection)
+# @bot.message_handler(state=UserState.condition_selection)
 # def select_condition(message: types.Message) -> None:
 #     """
 #     Обработчик каманд: /high, /low
@@ -51,7 +42,7 @@
 #         logger.info('Выбранное условие' + message.text + f'User_id {message.chat.id}')
 #         # Cоздание запроса
 #
-#     bot.set_state(message.chat.id, UserInputState.condition_selection)
+#     bot.set_state(message.chat.id,  UserState.condition_selection)
 #     markup = types.InlineKeyboardMarkup(row_width=1)
 #     price = types.InlineKeyboardButton(text='Поиск по цене',
 #                                        callback_data="price")
@@ -64,7 +55,6 @@
 #         data.clear()
 #         logger.info('Выбранное условие' + message.text + f'User_id {message.chat.id}')
 #         data['condition'] = message.text
-#         data['data_time'] = datetime.datetime.now().strftime('%d.%m.%y %h:%m:%s')
 #         data['chat_id'] = message.chat.id
 #
 #
