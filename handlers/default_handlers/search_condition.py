@@ -1,24 +1,34 @@
-# from keyboa.keyboards import keyboa_maker
-# from loguru import logger
-# from peewee import IntegrityError
-# from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
-#
-# from database.models import User, Conditions
-# import handlers.callback_handlers
-# from handlers.dictionary import emoji, dictionary
-# from keyboards.inline.brand_inline import (
-#     false_brand_inline_btn,
-#     web_inline_btn,
-#     main_commands_inline_btn, search_brand_inline_btn
-# )
-# from keyboards.inline.types_inline import type_search_inline_btn
-# from loader import bot
+from keyboa.keyboards import keyboa_maker
+from loguru import logger
+from peewee import IntegrityError
+from telebot.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+
+from database.models import User, History
+import handlers.callback_handlers
+from keyboards.inline.types_inline import type_search_inline_btn
+from loader import bot
 # from site_ip.response_main import main_handler, product_types_handler, brand_handler
 #
 #
-
+# @bot.message_handler(commands=['brand', 'tag', 'product_type', 'name'])
+# def search_state(message: Message) -> None:
+#     msg_user = message.text[1:]
+#     user_id = message.from_user.id
+#     chat_id = message.chat.id
 #
-# #
+#     if User.get_or_none(User.user_id == user_id) is None:
+#         bot.reply_to(message, "Вы не зарегистрированы. Напишите /start")
+#         return
+#
+#     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+#         data["first_cond"] = msg_user
+#
+#     bot.send_message(chat_id=chat_id,
+#                      text="Выберете условие для продолжения поиска: ",
+#                      reply_markup=main_commands_inline_markup(msg_user)
+#                      )
+
+
 # def set_brand(message: Message) -> None:
 #     user_brand = message.text.lower()
 #     if check_brand(user_brand):
@@ -101,26 +111,42 @@ from states.custom_states import UserState
 #             bot.send_message(call.message.chat.id, "Ошибка")
 #
 #
-# @bot.callback_query_handler(func=lambda call: call.data in brand_handler())
-# def brand_condition_search(call: CallbackQuery) -> None:
+# @bot.callback_query_handler(func=lambda call: call.data in ["type_search", "list_type"])
+# def type_callback(call: CallbackQuery) -> None:
 #     """
+#     :param call: CallbackQuery
+#     :return: None
+#     """
+#     if call.data == "type_search":
+#         msg_brand = bot.send_message(call.message.chat.id, "Введите тип: ")  # ввести или выбрать
+#         bot.register_next_step_handler(msg_brand, search_condition.set_type)
+#     elif call.data == "list_type":
+#         kb_types = keyboa_maker(items=product_types_handler(), copy_text_to_callback=True, items_in_row=3)
+#         bot.send_message(
+#             chat_id=call.message.chat.id, reply_markup=kb_types,
+#             text="Please select one of the type:")
+#
+#
+# @bot.callback_query_handler(func=lambda call: call.data in product_types_handler())
+# def type_condition_search(call: CallbackQuery) -> None:
+#     """
+#
 #       :param call:
 #       :return: None
 #     """
-#
 #     try:
 #         user_id = call.from_user.id
-#         Conditions(brand_cond=call.data, user_id=user_id).save()
+#         cond = Conditions(product_type_cond=call.data,
+#                           user_id=user_id)
+#         cond.save()
 #
 #         bot.send_message(call.message.chat.id,
-#                          "Выберете опцию: ",
-#                          reply_markup=search_brand_inline_btn())
+#                          "Выберете опцию: ", reply_markup=type_search_inline_btn())
 #
-#         logger.info(f'Выбран бренд. User_id: {user_id}, Brand: {call.data}')
-#
+#         logger.info(f'Выбран тип продукта. User_id: {user_id}, Type: {call.data}')
 #     except IntegrityError:
 #         # user_id = call.from_user.id
-#         # Conditions(brand_cond=None, user_id=user_id)
+#         # cond = Conditions(product_type_cond=None, user_id=user_id)
 #         # cond.save()
 #         bot.reply_to(message=call.message,
 #                      text=dictionary['started_message']['help'].format(
@@ -132,7 +158,42 @@ from states.custom_states import UserState
 #                          emoji['custom'],
 #                          emoji['history'],
 #                          emoji['favourite']))
+#
+#
+# @bot.callback_query_handler(func=lambda call: call.data in ["typing"])
+# def type_condition(call: CallbackQuery) -> None:
+#     """
+#     """
+#     try:
+#         cond = Conditions(product_type_cond=call.data, user_id=call.from_user.id).save()
+#
+#         if call.data == "typing":
+#             bot.reply_to(message=call.message,
+#                          text=dictionary['message']['brand'].format(
+#                              emoji['highprice'],
+#                              emoji['lowprice'],
+#                              emoji['highrating'],
+#                              emoji['lowrating'],
+#                              emoji['custom'],
+#                              emoji['tag'],
+#                              emoji['product_type'],
+#                              emoji['name'],
+#                              emoji['add'],
+#                              emoji['favourite']))
+#
+#     except IntegrityError:
+#         bot.reply_to(message=call.message,
+#                      text=dictionary['started_message']['help'].format(
+#                          emoji['brand'],
+#                          emoji['highprice'],
+#                        emoji['lowprice'],
+#                         emoji['highrating'],
+#                           emoji['lowrating'],
+#                          emoji['custom'],
+#                          emoji['history'],
+#                          emoji['favourite']))
 
+#
 
 # def set_brand(message: Message) -> None:
 #     user_brand = message.text.lower()

@@ -29,31 +29,20 @@ class User(BaseModel):
     last_name = CharField(null=True)
 
 
-class Conditions(BaseModel):
+class History(BaseModel):
     """"
     Модель задачи
     """
     # TODO: продумать
 
     user_id = IntegerField(null=False)
-    brand_cond = CharField(null=True)
-    tag_cond = CharField(null=True)
-    product_type_cond = CharField(null=True)
+    brand = CharField(null=True)
+    tag = CharField(null=True)
+    product_type = CharField(null=True)
+    name = CharField(null=True)
 
     def __str__(self):
-        return self.brand_cond
-
-
-
-class ListProducts(BaseModel):
-    """"
-
-    """
-    # TODO: продумать таблицу
-
-    brands = CharField(null=True)
-    tags = CharField(null=True)
-    product_type = CharField(null=True)
+        return self.user_id
 
 
 def create_models():

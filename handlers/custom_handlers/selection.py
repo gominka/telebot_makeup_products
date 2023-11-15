@@ -9,7 +9,7 @@
 # def user_select_brand(message) -> None:
 #     user_brand = message.text.lower()
 #     if check_cond_in_file("brand", user_brand):
-#         Conditions(brand_cond=user_brand,
+#         Conditions(brand=user_brand,
 #                    user_id=message.from_user.id).save()
 #         logger.info('Выбранное условие: ' + user_brand + f' User_id - {message.from_user.id}')
 #

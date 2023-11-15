@@ -1,6 +1,6 @@
 from telebot.types import CallbackQuery
 
-from database.models import Conditions
+from database.models import History
 from loader import bot
 
 
@@ -16,7 +16,7 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     if call.data == "brands_history":
         try:
-            sql_select_query = Conditions.select(Conditions.brand_cond).where(Conditions.user_id == user_id)
+            sql_select_query = History.select(History.brand_cond).where(History.user_id == user_id)
             result = []
             for row in sql_select_query:
                 result.append(str(row))
@@ -26,7 +26,7 @@ def history_command_callback(call: CallbackQuery) -> None:
 
     elif call.data == "types_history":
         try:
-            sql_select_query = Conditions.select(Conditions.product_type_cond).where(Conditions.user_id == user_id)
+            sql_select_query = History.select(History.product_type).where(History.user_id == user_id)
             result = []
             for row in sql_select_query:
                 result.append(str(row))
@@ -37,7 +37,7 @@ def history_command_callback(call: CallbackQuery) -> None:
 
     elif call.data == "tags_history":
         try:
-            sql_select_query = Conditions.select(Conditions.tag_cond).where(Conditions.user_id == user_id)
+            sql_select_query = History.select(History.tag).where(History.user_id == user_id)
             result = []
             for row in sql_select_query:
                 result.append(str(row))

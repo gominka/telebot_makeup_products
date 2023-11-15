@@ -2,7 +2,7 @@ from loguru import logger
 from telebot.handler_backends import State, StatesGroup
 from telebot.types import Message
 
-from database.models import User, Conditions
+from database.models import User, History
 from keyboards.inline.main_comm_inline_markup import (
     main_commands_inline_markup,
     search_inline_markup,
@@ -13,42 +13,25 @@ from loader import bot
 
 
 class UserState(StatesGroup):
-    start_state = State()
     search_state = State()
     search_in_file = State()
     name = State()
 
 
-@bot.message_handler(state=UserState.start_state)
-def start_state(message: Message) -> None:
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-
-    with bot.retrieve_data(user_id, chat_id) as data:
-        data["first_cond"] = message.text
-        first_cond = data["first_cond"]
-
-    bot.set_state(user_id=user_id, state=UserState.search_state, chat_id=chat_id)
-    bot.send_message(chat_id, text=first_cond, reply_markup=reply_keyboards.EMPTY)
-
-
-@bot.message_handler(commands=['brand', 'tag', 'product_type', 'name'], state=UserState.search_state)
+@bot.message_handler(state=UserState.search_state)
 def search_state(message: Message) -> None:
     msg_user = message.text[1:]
     user_id = message.from_user.id
     chat_id = message.chat.id
 
-    if User.get_or_none(User.user_id == user_id) is None:
-        bot.reply_to(message, "Вы не зарегистрированы. Напишите /start")
-        return
-
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["first_cond"] = msg_user
 
-    bot.send_message(chat_id=chat_id,
-                     text="Выберете условие для продолжения поиска: ",
-                     reply_markup=main_commands_inline_markup(msg_user)
-                     )
+    bot.send_message(
+        chat_id=chat_id,
+        text="Выберете условие для продолжения поиска: ",
+        reply_markup=main_commands_inline_markup(msg_user)
+    )
 
 
 @bot.message_handler(state=UserState.search_in_file)
@@ -61,17 +44,18 @@ def search_in_file(message: Message) -> None:
         condition = data["first_cond"]
 
     file_name = f"{condition}.txt"
-    in_db = "{}_cond".format(condition)
+    in_db = "{}".format(condition)
 
     with open(file_name) as f:
         if msg_user in f.read():
-            Conditions(in_db=msg_user, user_id=user_id).save()
-            logger.info('Выбранное условие: ' + msg_user + f' User_id - {user_id}')
-            bot.send_message(
-                chat_id=chat_id,
-                text="Выберете опцию: ",
-                reply_markup=search_inline_markup(condition)
-            )
+            if condition == "brand":
+                History(user_id=user_id, brand=msg_user).save()
+                logger.info('Выбранное условие: ' + msg_user + f' User_id - {user_id}')
+                bot.send_message(
+                    chat_id=chat_id,
+                    text="Выберете опцию: ",
+                    reply_markup=search_inline_markup(condition)
+                )
 
         else:
             bot.send_message(

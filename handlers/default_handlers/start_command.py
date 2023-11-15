@@ -29,7 +29,7 @@ def handle_start(message: Message) -> None:
         User.create(user_id=user_id, username=username, first_name=first_name, last_name=last_name)
         logger.info(f'Добавлен новый пользователь. User_id: {user_id}')
 
-        bot.set_state(user_id=user_id, state=states.custom_states.UserState.start_state, chat_id=chat_id)
+        bot.set_state(user_id=user_id, state=states.custom_states.UserState.search_state, chat_id=chat_id)
         bot.send_message(
             chat_id=message.chat.id,
             text=text.START,
@@ -37,8 +37,7 @@ def handle_start(message: Message) -> None:
         )
 
     except IntegrityError:
-
-        #TODO: уже есть в базе
+        # TODO: уже есть в базе
         bot.set_state(user_id=user_id, state=states.custom_states.UserState.search_state, chat_id=chat_id)
         bot.send_message(
             chat_id=message.chat.id,
@@ -49,4 +48,3 @@ def handle_start(message: Message) -> None:
                 emoji['condition']['name']
             )
         )
-

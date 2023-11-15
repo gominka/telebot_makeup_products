@@ -13,7 +13,7 @@ def main_commands_inline_markup(item):
     user_selection = InlineKeyboardButton(text='Ввести самостоятельно',
                                           callback_data='user_search_{}'.format(item))
     system_selection = InlineKeyboardButton(text='Выбрать из представленных',
-                                            callback_data='system_list_{}'.format(item))
+                                            callback_data='list_{}'.format(item))
     cancel = InlineKeyboardButton(text='Отмена', callback_data="cancel")
     markup.add(user_selection, system_selection, cancel)
     return markup
@@ -24,9 +24,10 @@ def failure_inline_markup(item):
     list = InlineKeyboardButton(text='Вывести список ',
                                 callback_data="list_{}".format(item))
     search = InlineKeyboardButton(text='Попробовать еще раз',
-                                  callback_data='user_product_{}'.format(item))
+                                  callback_data='user_search_{}'.format(item))
     markup.add(list, search)
     return markup
+
 
 
 def search_inline_markup(item):
