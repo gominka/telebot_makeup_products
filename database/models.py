@@ -28,6 +28,9 @@ class User(BaseModel):
     first_name = CharField()
     last_name = CharField(null=True)
 
+    def __str__(self):
+        return self.user_id
+
 
 class History(BaseModel):
     """"
@@ -40,9 +43,6 @@ class History(BaseModel):
     tag = CharField(null=True)
     product_type = CharField(null=True)
     name = CharField(null=True)
-
-    def __str__(self):
-        return self.user_id
 
 
 def create_models():

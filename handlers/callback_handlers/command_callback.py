@@ -1,13 +1,9 @@
-from keyboa.keyboards import keyboa_maker
-from peewee import IntegrityError
 from telebot.types import CallbackQuery
 from loguru import logger
 
 from database.models import History
-from keyboards.inline.main_comm_inline_markup import search_inline_markup
 
 from loader import bot
-from site_ip.response_main import brand_handler
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["cancel"])
@@ -33,8 +29,6 @@ def commands_callback_main(call: CallbackQuery) -> None:
     History.select().order_by(History.id.desc()).get().delete_instance()
     logger.info(f'Удален последний запрос')
     bot.delete_message(call.message.chat.id, call.message.id)
-
-
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["system_list_brand"])

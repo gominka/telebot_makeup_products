@@ -16,7 +16,7 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     if call.data == "brands_history":
         try:
-            sql_select_query = History.select(History.brand_cond).where(History.user_id == user_id)
+            sql_select_query = History.select(History.brand).where(History.user_id == user_id)
             result = []
             for row in sql_select_query:
                 result.append(str(row))

@@ -26,7 +26,7 @@ def handle_start(message: Message) -> None:
     chat_id = message.chat.id
 
     try:
-        User.create(user_id=user_id, username=username, first_name=first_name, last_name=last_name)
+        User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
         logger.info(f'Добавлен новый пользователь. User_id: {user_id}')
 
         bot.set_state(user_id=user_id, state=states.custom_states.UserState.search_state, chat_id=chat_id)

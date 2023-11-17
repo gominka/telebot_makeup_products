@@ -2,13 +2,12 @@ from loguru import logger
 from telebot.handler_backends import State, StatesGroup
 from telebot.types import Message
 
-from database.models import User, History
+from database.models import History, User
 from keyboards.inline.main_comm_inline_markup import (
     main_commands_inline_markup,
     search_inline_markup,
     failure_inline_markup
 )
-from keyboards.reply import reply_keyboards
 from loader import bot
 
 
@@ -18,11 +17,15 @@ class UserState(StatesGroup):
     name = State()
 
 
-@bot.message_handler(state=UserState.search_state)
+@bot.message_handler(commands=['brand', 'tag', 'product_type', 'name'], state=UserState.search_state)
 def search_state(message: Message) -> None:
     msg_user = message.text[1:]
     user_id = message.from_user.id
     chat_id = message.chat.id
+
+    if User.get_or_none(User.user_id == user_id) is None:
+        bot.reply_to(message, "Вы не зарегистрированы. Напишите /start")
+        return
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["first_cond"] = msg_user
