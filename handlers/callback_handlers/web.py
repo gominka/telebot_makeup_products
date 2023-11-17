@@ -22,5 +22,5 @@ def callback_web(call: CallbackQuery) -> None:
         )
 
     except Exception:
-        # TODO: уже есть в базе
-        bot.send_message(call.message.chat.id, Exception)
+        # TODO:
+        bot.send_message(call.message.chat.id, "Ошибка")

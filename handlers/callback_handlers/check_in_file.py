@@ -19,6 +19,7 @@ def call_btn_file(call: CallbackQuery) -> None:
 
     user_id = call.from_user.id
     chat_id = call.message.chat.id
+    msg_user = call.data
 
     try:
 
@@ -28,6 +29,8 @@ def call_btn_file(call: CallbackQuery) -> None:
             text="Выберете опцию: ",
             reply_markup=search_inline_markup(call.message)
         )
+        with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+            data["brand"] = msg_user
 
         logger.info(f'Выбран бренд. User_id: {user_id}, Brand: {call.data}')
 

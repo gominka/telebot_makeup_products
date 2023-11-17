@@ -71,8 +71,6 @@ def tag_handler() -> list:
         file.close()
         return tags_list
     except IOError:
-
-        # TODO: запись сразу в файл
         tags = []
         for item in main_handler():
             if item['tag_list']:
@@ -85,3 +83,15 @@ def tag_handler() -> list:
 
         tag_handler()
         logger.info(f'Создан файл со всеми тэгами')
+
+
+def name_handler(hand, cond) -> list:
+    """
+
+    :return: требуемое условие
+    """
+
+    for item in hand:
+        if item[cond]:
+            return item[cond]
+
