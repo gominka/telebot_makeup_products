@@ -85,7 +85,7 @@ def tag_handler() -> list:
         logger.info(f'Создан файл со всеми тэгами')
 
 
-def name_handler(hand, cond) -> list:
+def name_handler(hand, cond):
     """
 
     :return: требуемое условие
@@ -94,4 +94,6 @@ def name_handler(hand, cond) -> list:
     for item in hand:
         if item[cond]:
             return item[cond]
+        else:
+            return "Ошибка"
 
