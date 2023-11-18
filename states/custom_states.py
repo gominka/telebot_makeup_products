@@ -17,7 +17,7 @@ class UserState(StatesGroup):
     name = State()
 
 
-@bot.message_handler(commands=['brand', 'tag', 'product_type', 'name'], state=UserState.search_state)
+@bot.message_handler(commands=['brand', 'tag', 'product_type'], state=UserState.search_state)
 def search_state(message: Message) -> None:
     msg_user = message.text[1:]
     user_id = message.from_user.id

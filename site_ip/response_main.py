@@ -35,7 +35,7 @@ def brand_handler() -> list:
         logger.info(f'Создан список брендов')
 
 
-def product_types_handler() -> list:
+def product_type_handler() -> list:
     """
 
     :return: list
@@ -56,7 +56,7 @@ def product_types_handler() -> list:
                         product_types.append(item['brand'])
             for items in product_types:
                 f.write('%s\n' % items)
-        product_types_handler()
+        product_type_handler()
         logger.info(f'Создан список типов')
 
 

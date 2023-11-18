@@ -37,7 +37,7 @@ def handle_start(message: Message) -> None:
         )
 
     except IntegrityError:
-        # TODO: уже есть в базе
+
         bot.set_state(user_id=user_id, state=states.custom_states.UserState.search_state, chat_id=chat_id)
         bot.send_message(
             chat_id=message.chat.id,
