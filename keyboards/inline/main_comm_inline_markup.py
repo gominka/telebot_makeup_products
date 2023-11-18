@@ -36,16 +36,33 @@ def search_inline_markup(item):
     :param
     :return: markup
     """
+    if item == "brand":
+        markup = InlineKeyboardMarkup(row_width=1)
+        list = InlineKeyboardButton(text='Поиск товаров по бренду',
+                                    callback_data="branding")
+        search = InlineKeyboardButton(text='Переход на сайт бренда',
+                                      callback_data="web")
+        cancel = InlineKeyboardButton(text='Отмена',
+                                      callback_data='cancel_request')
+        markup.add(list, search, cancel)
+        return markup
 
-    markup = InlineKeyboardMarkup(row_width=1)
-    list = InlineKeyboardButton(text='Поиск товаров по бренду',
-                                callback_data="branding")
-    search = InlineKeyboardButton(text='Переход на сайт бренда',
-                                  callback_data="web")
-    cancel = InlineKeyboardButton(text='Отмена',
-                                  callback_data='cancel_request')
-    markup.add(list, search, cancel)
-    return markup
+    elif item == "tag":
+        markup = InlineKeyboardMarkup(row_width=1)
+        list = InlineKeyboardButton(text='Поиск товаров',
+                                    callback_data="tagging")
+        cancel = InlineKeyboardButton(text='Отмена',
+                                      callback_data='cancel_request')
+        markup.add(list, cancel)
+        return markup
+    elif item == "product_type":
+        markup = InlineKeyboardMarkup(row_width=1)
+        list = InlineKeyboardButton(text='Поиск товаров',
+                                    callback_data="typing")
+        cancel = InlineKeyboardButton(text='Отмена',
+                                      callback_data='cancel_request')
+        markup.add(list, cancel)
+        return markup
 
 
 def web_inline_btn(fl):
