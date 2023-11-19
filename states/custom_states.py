@@ -9,6 +9,7 @@ from keyboards.inline.main_comm_inline_markup import (
     failure_inline_markup
 )
 from loader import bot
+from site_ip.response_main import BASE_URL
 
 
 class UserState(StatesGroup):
@@ -23,9 +24,8 @@ def search_state(message: Message) -> None:
     user_id = message.from_user.id
     chat_id = message.chat.id
 
-    if User.get_or_none(User.user_id == user_id) is None:
-        bot.reply_to(message, "Вы не зарегистрированы. Напишите /start")
-        return
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+        data["url"] = BASE_URL
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["first_cond"] = msg_user

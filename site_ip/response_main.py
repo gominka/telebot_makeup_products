@@ -1,10 +1,11 @@
 import requests
 from loguru import logger
 
+BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json?"
 
-def main_handler():
-    base_url = "http://makeup-api.herokuapp.com/api/v1/products.json"
-    response = requests.get(base_url)
+
+def main_handler(url):
+    response = requests.get(url)
     data = response.json()
     return data
 
@@ -96,4 +97,3 @@ def name_handler(hand, cond):
             return item[cond]
         else:
             return "Ошибка"
-

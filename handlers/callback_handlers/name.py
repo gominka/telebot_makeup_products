@@ -4,7 +4,7 @@ from telebot.types import CallbackQuery
 from database.models import History
 from keyboards.inline.sec import odin, neodin
 from loader import bot
-from site_ip.response_main import name_handler
+from site_ip.response_main import name_handler, main_handler
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["branding"])
@@ -19,15 +19,12 @@ def history_command_callback(call: CallbackQuery) -> None:
     chat_id = call.message.chat.id
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        msg_user = data["brand"]
+        url = data["url"]
+        url_data = main_handler(url)
 
-    # TODO: сформировать ссылку
-    url = "http://makeup-api.herokuapp.com/api/v1/products.json?brand={}".format(msg_user)
-    response = requests.get(url)
-    url_data = response.json()
 
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        data["url_data"] = url_data
+    sql_select = History.select().order_by(History.id.desc()).where(History.user_id == user_id).get()
+    print(str(sql_select.brand) + str(sql_select.tag) + str(sql_select.product_type))
 
     if len(url_data) == 1:
         bot.send_message(
@@ -37,7 +34,12 @@ def history_command_callback(call: CallbackQuery) -> None:
         )
     else:
         # TODO: сортировать по рейтингу, цене ...
-        print("Несколько вариантов")
+        ids = []
+        for item in url_data:
+            if item['id'] is not None:
+                if item['id'] not in ids:
+                    ids.append(item['id'])
+        print(ids)
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["tagging"])
@@ -72,6 +74,7 @@ def history_command_callback(call: CallbackQuery) -> None:
         # TODO: сортировать по рейтингу, цене ...
         print("Несколько вариантов")
 
+
 @bot.callback_query_handler(func=lambda call: call.data in ["typing"])
 def history_command_callback(call: CallbackQuery) -> None:
     """
@@ -83,15 +86,11 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        msg_user = data["product_type"]
 
-    url = "http://makeup-api.herokuapp.com/api/v1/products.json?product_type={}".format(msg_user)
-    response = requests.get(url)
-    url_data = response.json()
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        data["url_data"] = url_data
+        url = data["url_data"]
+        url_data = main_handler(url)
 
     print(url)
 
@@ -104,6 +103,7 @@ def history_command_callback(call: CallbackQuery) -> None:
 
     else:
         # TODO: сортировать по рейтингу, цене ...
+        print(url)
         ids = []
         for item in url_data:
             if item['id'] is not None:

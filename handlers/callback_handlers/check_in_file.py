@@ -30,7 +30,10 @@ def call_btn_file(call: CallbackQuery) -> None:
             reply_markup=search_inline_markup("brand")
         )
         with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-            data["brand"] = msg_user
+            url = data["url"]
+            new_url = f"{url}brand={msg_user}&"
+            data["url"] = new_url
+            print(new_url)
 
         logger.info(f'Выбран бренд. User_id: {user_id}, Brand: {call.data}')
 
@@ -62,7 +65,8 @@ def call_btn_file(call: CallbackQuery) -> None:
             reply_markup=search_inline_markup("tag")
         )
         with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-            data["tag"] = msg_user
+            url = data["url"]
+            new_url = f"{url}product_type={msg_user}&"
 
         logger.info(f'Выбран тэг. User_id: {user_id}, Tag: {call.data}')
 
@@ -72,6 +76,7 @@ def call_btn_file(call: CallbackQuery) -> None:
         # cond.save()
         bot.reply_to(message=call.message,
                      text="dddd")
+
 
 @bot.callback_query_handler(func=lambda call: call.data in cond_handler("product_type"))
 def call_btn_file(call: CallbackQuery) -> None:
@@ -93,8 +98,11 @@ def call_btn_file(call: CallbackQuery) -> None:
             text="Выберете опцию: ",
             reply_markup=search_inline_markup("product_type")
         )
+
         with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-            data["product_type"] = msg_user
+            url = data["url"]
+            new_url = f"{url}product_type={msg_user}&"
+            data["url"] = new_url
 
         logger.info(f'Выбран product_type. User_id: {user_id}, Product_type: {call.data}')
 
@@ -102,5 +110,4 @@ def call_btn_file(call: CallbackQuery) -> None:
         # user_id = call.from_user.id
         # Conditions(brand_cond=None, user_id=user_id)
         # cond.save()
-        bot.reply_to(message=call.message,
-                     text="dddd")
+        bot.reply_to(message=call.message, text="dddd")
