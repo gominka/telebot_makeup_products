@@ -1,14 +1,9 @@
 import requests
 from loguru import logger
 
+from site_ip.site_ip_handler import _make_response
+
 BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json?"
-
-
-def main_handler(url):
-    response = requests.get(url)
-    data = response.json()
-    return data
-
 
 def brand_handler() -> list:
     """
@@ -25,7 +20,7 @@ def brand_handler() -> list:
 
         with open('brand.txt', 'w+') as f:
             brands = []
-            for item in main_handler():
+            for item in _make_response():
                 if item['brand'] is not None:
                     if item['brand'] not in brands:
                         brands.append(item['brand'])

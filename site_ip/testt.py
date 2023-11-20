@@ -1,5 +1,5 @@
 from loguru import logger
-from site_ip.response_main import main_handler
+from site_ip.site_ip_handler import _make_response
 
 
 def cond_handler(msg_user) -> list:
@@ -17,7 +17,7 @@ def cond_handler(msg_user) -> list:
         except IOError:
             with open('brand.txt', 'w+') as f:
                 brands = []
-                for item in main_handler():
+                for item in _make_response():
                     if item['brand'] is not None:
                         if item['brand'] not in brands:
                             brands.append(item['brand'])
@@ -36,7 +36,7 @@ def cond_handler(msg_user) -> list:
         except IOError:
             with open('product_type.txt', 'w+') as f:
                 product_types = []
-                for item in main_handler():
+                for item in _make_response():
                     if item['product_type'] is not None:
                         if item['product_type'] not in product_types:
                             product_types.append(item['product_type'])
@@ -53,7 +53,7 @@ def cond_handler(msg_user) -> list:
             return tags_list
         except IOError:
             tags = []
-            for item in main_handler():
+            for item in _make_response():
                 if item['tag_list']:
                     for tag in item['tag_list']:
                         if tag not in tags:

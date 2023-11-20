@@ -4,7 +4,8 @@ from telebot.types import CallbackQuery
 from database.models import History
 from keyboards.inline.sec import odin, neodin
 from loader import bot
-from site_ip.response_main import name_handler, main_handler
+from site_ip.response_main import name_handler
+from site_ip.site_ip_handler import _make_response
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["branding"])
@@ -18,15 +19,10 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
-
-
-
     sql_select = History.select().order_by(History.id.desc()).where(History.user_id == user_id).get()
     print(str(sql_select.brand) + str(sql_select.tag) + str(sql_select.product_type))
 
-    url = f"{BASE_URL}
-
-    if len(url_data) == 1:
+    if len(_make_response()) == 1:
         bot.send_message(
             chat_id=call.message.chat.id,
             text="Выберите, что хотите сделать",
@@ -35,7 +31,7 @@ def history_command_callback(call: CallbackQuery) -> None:
     else:
         # TODO: сортировать по рейтингу, цене ...
         ids = []
-        for item in url_data:
+        for item in _make_response():
             if item['id'] is not None:
                 if item['id'] not in ids:
                     ids.append(item['id'])
@@ -86,11 +82,9 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
-
-
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         url = data["url_data"]
-        url_data = main_handler(url)
+        url_data = _make_response()
 
     print(url)
 
