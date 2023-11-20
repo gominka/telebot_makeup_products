@@ -18,13 +18,13 @@ def history_command_callback(call: CallbackQuery) -> None:
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        url = data["url"]
-        url_data = main_handler(url)
+
 
 
     sql_select = History.select().order_by(History.id.desc()).where(History.user_id == user_id).get()
     print(str(sql_select.brand) + str(sql_select.tag) + str(sql_select.product_type))
+
+    url = f"{BASE_URL}
 
     if len(url_data) == 1:
         bot.send_message(
