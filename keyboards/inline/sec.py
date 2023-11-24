@@ -19,21 +19,3 @@ def odin():
 
     markup.add(price, rating, api_featured_image, product_link, description, cancel)
     return markup
-
-
-def neodin():
-    """
-    Формирование inline кнопок
-
-    :param
-    :return: markup
-    """
-    markup = InlineKeyboardMarkup(row_width=1)
-
-    api_featured_image = InlineKeyboardButton(text='Ссылка на картинку ', callback_data="api_featured_image")
-    product_link = InlineKeyboardButton(text='Ссылка на продукт ', callback_data="product_link")
-    description = InlineKeyboardButton(text='Вывести описание', callback_data="description")
-    cancel = InlineKeyboardButton(text='Отмена', callback_data="cancel")
-
-    markup.add(api_featured_image, product_link, description, cancel)
-    return markup

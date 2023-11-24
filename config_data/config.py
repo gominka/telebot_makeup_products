@@ -12,7 +12,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 DEFAULT_COMMANDS = (
     ("start", "Начать поиск сначала"),
     ("brand", "Выбор бренда"),
-    ("tag", "Поиск по тэгам"),
+    ("product_tag", "Поиск по тэгам"),
     ("product_type", "Поиск по типу продукта"),
     ("help", "Вывести справку")
 )

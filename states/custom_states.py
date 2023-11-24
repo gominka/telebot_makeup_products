@@ -1,40 +1,20 @@
 from loguru import logger
 from telebot.handler_backends import State, StatesGroup
-from telebot.types import Message
+from telebot.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 
-from database.models import History, User
+from database.models import History
 from keyboards.inline.main_comm_inline_markup import (
-    main_commands_inline_markup,
     search_inline_markup,
     failure_inline_markup
 )
 from loader import bot
-from site_ip.response_main import BASE_URL
 
 
 class UserState(StatesGroup):
     search_state = State()
     search_in_file = State()
     name = State()
-
-
-@bot.message_handler(commands=['brand', 'tag', 'product_type'], state=UserState.search_state)
-def search_state(message: Message) -> None:
-    msg_user = message.text[1:]
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        data["url"] = BASE_URL
-
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        data["first_cond"] = msg_user
-
-    bot.send_message(
-        chat_id=chat_id,
-        text="Выберете условие для продолжения поиска: ",
-        reply_markup=main_commands_inline_markup(msg_user)
-    )
+    brand = State()
 
 
 @bot.message_handler(state=UserState.search_in_file)
@@ -47,7 +27,6 @@ def search_in_file(message: Message) -> None:
         condition = data["first_cond"]
 
     file_name = f"{condition}.txt"
-    in_db = "{}".format(condition)
 
     with open(file_name) as f:
         if msg_user in f.read():
@@ -67,6 +46,7 @@ def search_in_file(message: Message) -> None:
                 reply_markup=failure_inline_markup(condition)
             )
 
+
 # @bot.message_handler(state=UserState.brand)
 # def brand_condition(message: Message) -> None:
 #     markup = InlineKeyboardMarkup(row_width=1)
@@ -78,8 +58,8 @@ def search_in_file(message: Message) -> None:
 #     bot.send_message(message.chat.id,
 #                      "Выберете опцию: ",
 #                      reply_markup=markup)
-# #
-#
+
+
 # @bot.message_handler(state=UserState.new_find_title)
 # def process_task_title(message: Message) -> None:
 #     with bot.retrieve_data(message.from_user.id) as data:
