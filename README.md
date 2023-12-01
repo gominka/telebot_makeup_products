@@ -26,22 +26,14 @@
 2. Вводит выбранное число
 
 
-SEARCH_COMMANDS = f"\n\n{emoji.search_condition['high']} /high - Установить максимальную цену или рейтинг" \
-                  f"\n\n{emoji.search_condition['low']} /low - Установить минимальную цену или рейтинг"
-
-CUSTOM_COMMANDS = f"\n\n {emoji.start_condition['name']} /name - Поиск по имени" \
-                  f"\n\n{emoji.addition_condition['add']} /add - Добавить в избранное
-/start_again"
-
-FAV_COMMANDS = f"\n\n{emoji.addition_condition['favourite']} /favourite - Узнать добавление в избранное"
-
-
-- /start_again
+name - Поиск по имени" 
+add - Добавить в избранное
+favourite - Узнать добавление в избранное"
+start_again
+help
 
 Запрос условий продолжает пока:
  - пользователь не выберет команду "/start_again" и начнет поиск заново
- - кол-во товаров, удовлетворяющий условия поиска не достигнет 5. 
- Если так происходит, то пользователю выводится этот список
-
+ - кол-во товаров, удовлетворяющий условия поиска не достигнет 5. Если так происходит, то пользователю выводится этот список
 
 API Endpoint = http://makeup-api.herokuapp.com/api/v1/products.json
