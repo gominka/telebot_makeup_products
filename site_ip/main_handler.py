@@ -25,7 +25,7 @@ def make_response(params: Dict, success=200):
     status_code = response.status_code
 
     if status_code == success:
-        return response.json()
+        return json.loads(response.text)
 
     return status_code
 
@@ -37,8 +37,8 @@ def conditions_list(params: dict, selected_condition: str) -> List:
     :param params: выбранные параметры
     :return: словарь, содержащий cписок возможных условий
     """
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-    data = json.loads(response.text)
+
+    data = make_response(params)
 
     if selected_condition == "brand":
         brands = sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))
@@ -50,6 +50,10 @@ def conditions_list(params: dict, selected_condition: str) -> List:
 
     elif selected_condition == "product_type":
         product_types = sorted(list(set([item['product_type'] for item in data if item['product_type'] is not None])))
+        return product_types
+
+    elif selected_condition == "list_name_product":
+        product_types = sorted(list(set([item['name'] for item in data if item['name'] is not None])))
         return product_types
 
     elif selected_condition == "all_condition":

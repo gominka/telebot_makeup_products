@@ -1,150 +1,21 @@
-from loguru import logger
 from telebot.handler_backends import State, StatesGroup
-from telebot.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from telebot import types
 
-from database.models import History
-from keyboards.inline.main_comm_inline_markup import (
-    search_inline_markup,
-    failure_inline_markup
-)
+from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
+from site_ip.main_handler import make_response
 
 
 class UserState(StatesGroup):
     search_state = State()
-    search_in_file = State()
-    name = State()
-    brand = State()
+    custom_state = State()
+    condition_selection = State()
 
 
-@bot.message_handler(state=UserState.search_in_file)
-def search_in_file(message: Message) -> None:
-    msg_user = message.text
-    user_id = message.from_user.id
-    chat_id = message.chat.id
-
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        condition = data["first_cond"]
-
-    file_name = f"{condition}.txt"
-
-    with open(file_name) as f:
-        if msg_user in f.read():
-            if condition == "brand":
-                History(user_id=user_id, brand=msg_user).save()
-                logger.info('Выбранное условие: ' + msg_user + f' User_id - {user_id}')
-                bot.send_message(
-                    chat_id=chat_id,
-                    text="Выберете опцию: ",
-                    reply_markup=search_inline_markup(condition)
-                )
-
-        else:
-            bot.send_message(
-                chat_id=chat_id,
-                text="Не можем найти такой бренд.",
-                reply_markup=failure_inline_markup(condition)
-            )
-
-
-# @bot.message_handler(state=UserState.brand)
-# def brand_condition(message: Message) -> None:
-#     markup = InlineKeyboardMarkup(row_width=1)
-#     list_brand = InlineKeyboardButton(text='Поиск товаров по бренду',
-#                                       callback_data="")
-#     brand_search = InlineKeyboardButton(text='Переход на сайт бренда',
-#                                         callback_data='brand_search')
-#     markup.add(list_brand, brand_search)
-#     bot.send_message(message.chat.id,
-#                      "Выберете опцию: ",
-#                      reply_markup=markup)
-
-
-# @bot.message_handler(state=UserState.new_find_title)
-# def process_task_title(message: Message) -> None:
-#     with bot.retrieve_data(message.from_user.id) as data:
-#         data["new_task"]["title"] = message.text
-#     bot.send_message(message.from_user.id, "Введите дату (ДД.ММ.ГГГГ):")
-#     bot.set_state(message.from_user.id, UserState.new_task_due_date)
-#
-#
-# @bot.message_handler(state=UserState.new_task_due_date)
-# def process_task_due_date(message: Message) -> None:
-#     due_date_string = message.text
-#     try:
-#         due_date = datetime.datetime.strptime(due_date_string, DATE_FORMAT)
-#     except ValueError:
-#         bot.send_message(message.from_user.id, "Введите дату (ДД.ММ.ГГГГ):")
-#         return
-#
-#     with bot.retrieve_data(message.from_user.id) as data:
-#         data["new_task"]["due_date"] = due_date
-#
-#     new_task = Conditions(**data["new_task"])
-#     new_task.save()
-#     bot.send_message(message.from_user.id, f"Задача добавлена:\n{new_task}")
-#     bot.delete_state(message.from_user.id)
-#
-#
-# @bot.message_handler(state=UserState.tasks_make_done)
-# def process_task_done(message: Message) -> None:
-#     task_id = int(message.text)
-#     task = Conditions.get_or_none(Conditions.task_id == task_id)
-#     if task is None:
-#         bot.send_message(message.from_user.id, "Задачи с таким ID не существует.")
-#         return
-#
-#     if task.telegram_id != message.from_user.id:
-#         bot.send_message(
-#             message.from_user.id, "Вы не являетесь владельцем данной задачи."
-#         )
-#         return
-#
-#     task.is_done = not task.is_done
-#     task.save()
-#     bot.send_message(message.from_user.id, task)
-#
-#
-# @bot.message_handler(state=UserState.new_task_title)
-# def process_task_title(message: Message) -> None:
-#     with bot.retrieve_data(message.from_user.id) as data:
-#         data["new_task"]["title"] = message.text
-#     bot.send_message(message.from_user.id, "Введите дату (ДД.ММ.ГГГГ):")
-#     bot.set_state(message.from_user.id, UserState.new_task_due_date)
-#
-#
-# @bot.message_handler(state=UserState.new_task_due_date)
-# def process_task_due_date(message: Message) -> None:
-#     due_date_string = message.text
-#     try:
-#         due_date = datetime.datetime.strptime(due_date_string, DATE_FORMAT)
-#     except ValueError:
-#         bot.send_message(message.from_user.id, "Введите дату (ДД.ММ.ГГГГ):")
-#         return
-#
-#     with bot.retrieve_data(message.from_user.id) as data:
-#         data["new_task"]["due_date"] = due_date
-#
-#     new_task = Conditions(**data["new_task"])
-#     new_task.save()
-#     bot.send_message(message.from_user.id, f"Задача добавлена:\n{new_task}")
-#     bot.delete_state(message.from_user.id)
-#
-#
-# @bot.message_handler(state=UserState.tasks_make_done)
-# def process_task_done(message: Message) -> None:
-#     task_id = int(message.text)
-#     task = Conditions.get_or_none(Conditions.task_id == task_id)
-#     if task is None:
-#         bot.send_message(message.from_user.id, "Задачи с таким ID не существует.")
-#         return
-#
-#     if Conditions.user_id != message.from_user.id:
-#         bot.send_message(
-#             message.from_user.id, "Вы не являетесь владельцем данной задачи."
-#         )
-#         return
-#
-#     task.is_done = not task.is_done
-#     task.save()
-#     bot.send_message(message.from_user.id, task)
+@bot.message_handler(state=UserState.custom_state)
+@exc_handler
+def search_in_file(message: types.Message) -> None:
+    with bot.retrieve_data(user_id=message.from_user.id, chat_id=message.chat.id) as data:
+        params = data["params"]
+        data = make_response(params)
+        print(data)

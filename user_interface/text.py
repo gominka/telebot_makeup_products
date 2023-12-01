@@ -1,51 +1,31 @@
-START = "Добро пожаловать в наш бот для поиска товаров!" \
-        "\n\n Выберите условие для начала поиска: " \
-        "\n\n {} /brand - Выбрать бренд"\
-        "\n\n {} /product_tag - Выбрать тэг" \
-       "\n\n {} /product_type - Выбрать тип" \
-       "\n\n {} /name - Поиск по имени"
+from user_interface import emoji
 
+MAIN_COMMANDS = f"\n\n {emoji.start_condition['brand']} /brand - Выбрать бренд" \
+                f"\n\n {emoji.start_condition['product_tag']} /product_tag - Выбрать тэг" \
+                f"\n\n {emoji.start_condition['product_type']} /product_type - Выбрать тип"
 
-HELP = "Список доступных команд:"\
-       "\n\n {} /brand - Выбрать бренд"\
-       "\n\n {} /product_tag - Выбрать тэг" \
-       "\n\n {} /product_type - Выбрать тип" \
-       "\n\n {} /name - Поиск по имени"
+SEARCH_COMMANDS = f"\n\n{emoji.search_condition['high']} /high - Установить максимальную цену или рейтинг" \
+                  f"\n\n{emoji.search_condition['low']} /low - Установить минимальную цену или рейтинг"
 
-COND = "Выберите команду для поиска:\n\n"\
-       "{} /brand - Выбрать бренд"\
-       "{} /product_tag - Выбрать тэг" \
-       "{} /product_type - Выбрать тип" \
-       "{} /name - Поиск по имени"\
-       "\n\n {} /highprice - Установить максимальную цену"\
-       "{} /lowprice - Установить минимальную цену"\
-       "{} /highrating - Узнать топ товаров с высоким рейтингом"\
-       "{} /lowrating - Узнать топ товаров с низким рейтингом"\
-       "\n\n {} /add - Добавить в избранное"\
-       "\n\n {} /favourite - Узнать добавление в избранное"
+CUSTOM_COMMANDS = f"\n\n {emoji.start_condition['name']} /name - Поиск по имени" \
+                  f"\n\n{emoji.addition_condition['add']} /add - Добавить в избранное"
 
+FAV_COMMANDS = f"\n\n{emoji.addition_condition['favourite']} /favourite - Узнать добавление в избранное"
 
+START_MSG = "Добро пожаловать в наш бот для поиска товаров!" \
+            "\n\n Выберите условие для начала поиска: " + MAIN_COMMANDS
 
-USER_HANDLER = "Что будем искать? "\
+HELP_MSG = "Список доступных команд:" + MAIN_COMMANDS + FAV_COMMANDS
+
+CONDITION = "Выберите команду:" + MAIN_COMMANDS + SEARCH_COMMANDS + CUSTOM_COMMANDS + FAV_COMMANDS
+
+DESCRIPTION = "Описание товара:" \
+              "{}" \
+              "{}"
+
+USER_HANDLER = "Что будем искать? " \
                "\n\n Напиши условие поиска."
 
+
+
 START_OVER = "Начать поиск заново"
-
-
-IS_NOT_NUMBER = "Age should be a positive number, try again."
-
-SHOW_DATA = "First name: {}\nLast name: {}\nAge: {}"
-
-DATA_IS_SAVED = "Your data is saved!\n" + SHOW_DATA
-ALREADY_REGISTERED = "You are already registered!\n" + SHOW_DATA
-SHOW_DATA_WITH_PREFIX = "Your data:\n" + SHOW_DATA
-
-NOT_REGISTERED = "You are not registered yet, try /register."
-
-CANCEL_REGISTER = "Cancelled! Your data is not saved."
-
-DELETE_ACCOUNT = "Are you sure you want to delete your account?"
-DELETE_ACCOUNT_OPTIONS = {"Yes!": True, "No..": False}
-DELETE_ACCOUNT_UNKNOWN = "I don't understand this command."
-DELETE_ACCOUNT_DONE = "Done! You can /register again."
-DELETE_ACCOUNT_CANCEL = "Ok, stay for longer!"

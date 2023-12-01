@@ -6,15 +6,15 @@ import functools
 from peewee import IntegrityError
 from telebot import types
 
-from database.models import History
-from handlers.default_handlers import start_command
+from database.models import Favourity
+from keyboards.reply.reply_keyboards import get_reply_keyboard
 from loader import bot
 from user_interface import text
-from user_interface.emoji import emoji
 
 
 def exc_handler(method: Callable) -> Callable:
     """ Декоратор. Логирует исключение вызванной функции, уведомляет пользователя об ошибке """
+
     @functools.wraps(method)
     def wrapped(message: Union[types.Message, types.CallbackQuery]) -> None:
         try:
@@ -27,33 +27,26 @@ def exc_handler(method: Callable) -> Callable:
                 exc_handler(method(message))
             else:
                 if str(exception) == 'Range Error':
-                    bot.send_message(chat_id=message.chat.id,
-                                     text="Ошибка")
+                    bot.send_message(chat_id=message.chat.id, text="Некорректнный ввод")
                 else:
-                    bot.send_message(chat_id=message.chat.id, text="Ошибка")
+                    bot.send_message(chat_id=message.chat.id, text="Ошибка ввода")
                 bot.register_next_step_handler(message=message, callback=exc_handler(method))
 
         except IntegrityError:
-            bot.send_message(chat_id=message.chat.id, text=text.HELP.format(
-                    emoji['condition']['brand'],
-                    emoji['condition']['tag'],
-                    emoji['condition']['product_type'],
-                    emoji['condition']['name']))
+            bot.send_message(chat_id=message.chat.id, text=text.HELP_MSG)
 
         except Exception as exception:
-            bot.send_message(chat_id=message.chat.id, text="Ошибка")
+            bot.reply_to(message, "Для начала поиска нажмите. Напишите /start")
+
             with open('errors_log.txt', 'a') as file:
                 file.write('\n'.join([ctime(time()), exception.__class__.__name__, traceback.format_exc(), '\n\n']))
             sleep(1)
-            start_command.start_command_handler(message)
 
     return wrapped
 
 
 def reset_data(user_id: int) -> None:
-    """
-    Сброс данных пользователя (json файла).
-    :param user_id: user_id
-    """
-    user = History.get(History.user_id == user_id)
+    """Сброс данных пользователя"""
+
+    user = Favourity.get(Favourity.user_id == user_id)
     user.delete_instance()
