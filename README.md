@@ -1,4 +1,7 @@
-# @make_up_products_bot
+# Telebot
+[Telebot] Telebot (## Описание команд)
+
+@make_up_products_bot
 бот, производящий поиск косметики
 
 ## Описание команд
