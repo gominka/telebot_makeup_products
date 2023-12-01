@@ -423,3 +423,28 @@ KeyError: 439024736
 
 
 
+Fri Dec  1 13:21:57 2023
+KeyError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_condition.py", line 20, in main_search_command
+    data["cond"] = msg_user
+    ~~~~^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_condition.py", line 19, in main_search_command
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
+
+
+
