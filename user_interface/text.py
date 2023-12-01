@@ -8,7 +8,8 @@ SEARCH_COMMANDS = f"\n\n{emoji.search_condition['high']} /high - Установ�
                   f"\n\n{emoji.search_condition['low']} /low - Установить минимальную цену или рейтинг"
 
 CUSTOM_COMMANDS = f"\n\n {emoji.start_condition['name']} /name - Поиск по имени" \
-                  f"\n\n{emoji.addition_condition['add']} /add - Добавить в избранное"
+                  f"\n\n{emoji.addition_condition['add']} /add - Добавить в избранное"\
+                  f"\n\n{emoji.addition_condition['add']} /start_again - Начать заново"
 
 FAV_COMMANDS = f"\n\n{emoji.addition_condition['favourite']} /favourite - Узнать добавление в избранное"
 
