@@ -9,4 +9,5 @@ search_condition = {'high': '\U00002B06',
 
 addition_condition = {'add': '\U0001F4AD',
                       'favourite': '\U0001F496',
-                      'history': '\U0001F4AD'}
+                      'history': '\U0001F4AD',
+                      'start_again': '\U0001F407'}

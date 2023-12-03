@@ -39,7 +39,7 @@ def call_btn_file(call: types.CallbackQuery) -> None:
 
         markup = types.InlineKeyboardMarkup(row_width=1)
         custom_search = types.InlineKeyboardButton(text='Поиск товаров', callback_data="check_len_responce")
-        website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website")
+        website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website_link")
         cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_request')
         markup.add(custom_search)
 

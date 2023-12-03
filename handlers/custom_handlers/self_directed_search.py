@@ -2,12 +2,10 @@ from peewee import logger
 from telebot import types
 from telebot.types import CallbackQuery
 
-import states
 from handlers.default_handlers.exception_handler import exc_handler
 
 from loader import bot
 from site_ip.main_handler import conditions_list
-from user_interface import text
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["user_search_brand", "user_search_tag",
@@ -36,7 +34,7 @@ def find_user(message: types.Message):
 
         markup = types.InlineKeyboardMarkup(row_width=1)
         custom_search = types.InlineKeyboardButton(text='Поиск товаров', callback_data="check_len_responce")
-        website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website")
+        website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website_link")
         cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_request')
         markup.add(custom_search)
 
