@@ -13,8 +13,7 @@ DEFAULT_COMMANDS = (
     ("start", "Начать поиск сначала"),
     ("brand", "Выбор бренда"),
     ("product_tag", "Поиск по тэгам"),
-    ("product_type", "Поиск по типу продукта"),
-    ("help", "Вывести справку")
+    ("product_type", "Поиск по типу продукта")
 )
 
 ADDITIONAL_COMMANDS = (
