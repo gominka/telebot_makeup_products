@@ -19,7 +19,7 @@ DEFAULT_COMMANDS = (
 
 ADDITIONAL_COMMANDS = (
     ("history", "Посмотреть историю"),
-    ("favourites", "Посмотреть избранное"),
+    ("my_favorites", "Посмотреть избранное"),
     ("name", "Вывести список продуктов"),
 )
 

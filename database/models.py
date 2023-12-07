@@ -28,14 +28,13 @@ class User(BaseModel):
         return self.user_id
 
 
-class Favourity(BaseModel):
+class Favorite(BaseModel):
     """Модель избранных товаров или условию"""
 
     user_id = IntegerField(null=False)
     brand = CharField(null=True)
     product_tag = CharField(null=True)
     product_type = CharField(null=True)
-    id_product = CharField(null=True)
 
 
 def create_models():

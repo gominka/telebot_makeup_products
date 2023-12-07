@@ -8,6 +8,6 @@ search_condition = {'high': '\U00002B06',
                     'custom': '\U0001F9D2'}
 
 addition_condition = {'add': '\U0001F4AD',
-                      'favourite': '\U0001F496',
+                      'favorite': '\U0001F496',
                       'history': '\U0001F4AD',
                       'start_again': '\U0001F407'}

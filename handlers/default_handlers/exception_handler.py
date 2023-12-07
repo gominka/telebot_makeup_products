@@ -6,7 +6,7 @@ import functools
 from peewee import IntegrityError
 from telebot import types
 
-from database.models import Favourity
+from database.models import Favorite
 from keyboards.reply.reply_keyboards import get_reply_keyboard
 from loader import bot
 from user_interface import text
@@ -48,5 +48,5 @@ def exc_handler(method: Callable) -> Callable:
 def reset_data(user_id: int) -> None:
     """Сброс данных пользователя"""
 
-    user = Favourity.get(Favourity.user_id == user_id)
+    user = Favorite.get(Favorite.user_id == user_id)
     user.delete_instance()

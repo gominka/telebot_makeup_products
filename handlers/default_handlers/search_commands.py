@@ -34,16 +34,13 @@ def search_command_handler(message: types.Message) -> None:
 
     bot.set_state(user_id=user_id, state=states.custom_states.UserState.condition_selection, chat_id=chat_id)
 
-    bot.send_message(chat_id=chat_id, reply_markup=kb_cond, text="Выберите условие")
+    bot.send_message(chat_id=chat_id, reply_markup=kb_cond, text="Выберите условие:  ")
 
 
-@bot.message_handler(state=states.custom_states.UserState.condition_selection)
-@bot.callback_query_handler(func=lambda call: True)
+@bot.callback_query_handler(func=lambda call: True, state=states.custom_states.UserState.condition_selection)
 @exc_handler
 def callback_search_command(call: types.CallbackQuery) -> None:
     """Обработка нажатия кнопок, выбора условия"""
-    print(call.data)
-
     user_id = call.from_user.id
     chat_id = call.message.chat.id
     msg_user = call.data
@@ -53,8 +50,8 @@ def callback_search_command(call: types.CallbackQuery) -> None:
 
         markup = types.InlineKeyboardMarkup(row_width=1)
         custom_search = types.InlineKeyboardButton(text='Продолжить поиск', callback_data="check_len_responce")
-        favourite = types.InlineKeyboardButton(text='Добавить в избранное', callback_data="favourite")
-        cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_request')
+        favourite = types.InlineKeyboardButton(text='Добавить в избранное', callback_data="favorite")
+        cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_search_cond')
         markup.add(custom_search, favourite)
 
         if search_cond == "brand":
@@ -76,4 +73,5 @@ def callback_search_command(call: types.CallbackQuery) -> None:
             logger.info(f'Выбран тип продукта. User_id: {user_id}, Product_type: {msg_user}')
 
         markup.add(cancel)
-        bot.send_message(chat_id=chat_id, text="Выберете опцию: ", reply_markup=markup)
+        bot.send_message(chat_id=chat_id, text="Что хотите сделать? ", reply_markup=markup)
+        bot.set_state(user_id=user_id, state=states.custom_states.UserState.custom_state, chat_id=chat_id)
