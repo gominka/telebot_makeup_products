@@ -10,10 +10,11 @@ DB_NAME = os.getenv("DB_NAME")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 DEFAULT_COMMANDS = (
-    ("start", "Начать поиск сначала"),
+    ("start", "Начать поиск"),
     ("brand", "Выбор бренда"),
     ("product_tag", "Поиск по тэгам"),
-    ("product_type", "Поиск по типу продукта")
+    ("product_type", "Поиск по типу продукта"),
+    ("start_again", "Начать поиск сначала")
 )
 
 ADDITIONAL_COMMANDS = (

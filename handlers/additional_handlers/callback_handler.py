@@ -1,8 +1,11 @@
+from loguru import logger
 from telebot import types
+from telebot.types import CallbackQuery
+
+from handlers.default_handlers.exception_handler import exc_handler
 
 from loader import bot
-
-from site_ip.main_handler import make_response
+from site_ip.main_handler import conditions_list, make_response
 from user_interface import text
 
 
@@ -46,3 +49,29 @@ def check_in_site_call(call: types.CallbackQuery) -> None:
 
     else:
         bot.send_message(chat_id=call.message.chat.id, text=text.CONDITION)
+
+@bot.callback_query_handler(func=lambda call: call.data in ["check_len_responce"])
+@exc_handler
+def call_btn_file(call: CallbackQuery) -> None:
+
+    user_id = call.from_user.id
+    chat_id = call.message.chat.id
+
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+        params = data["params"]
+
+    bot.send_message(chat_id=chat_id, text=str(conditions_list(params=params, selected_condition=call.data)))
+
+
+
+
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    custom_search = types.InlineKeyboardButton(text='Продолжить поиск', callback_data="check_len_responce")
+    favourite = types.InlineKeyboardButton(text='Добавить в избранное', callback_data="favourite")
+    cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_request')
+    markup.add(custom_search, favourite)
+
+    if cond == "brand":
+        website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website_link")
+        markup.add(website)
+
