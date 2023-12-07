@@ -13,7 +13,7 @@ CUSTOM_COMMANDS = f"\n\n{emoji.addition_condition['favorite']} /favorite - До�
 FAV_COMMANDS = f"\n\n{emoji.addition_condition['favorite']} /my_favorites - Узнать добавление в избранное"
 
 
-START_MSG = "Добро пожаловать в наш бот для поиска товаров!" \
+START_MSG = "Добро пожаловать в телеграмм-бот!" \
             "\n\n Выберите условие для начала поиска: " + MAIN_COMMANDS
 
 HELP_MSG = "Список доступных команд:" + MAIN_COMMANDS + FAV_COMMANDS

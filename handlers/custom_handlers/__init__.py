@@ -1,4 +1,3 @@
-from . import wibsite_callback
-from . import favorite
+from . import search_callback
 from . import cancel_callback
 from . import description

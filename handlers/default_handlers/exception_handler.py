@@ -29,6 +29,7 @@ def exc_handler(method: Callable) -> Callable:
                 if str(exception) == 'Range Error':
                     bot.send_message(chat_id=message.chat.id, text="Некорректнный ввод")
                 else:
+                    "Отсутствие условий"
                     bot.send_message(chat_id=message.chat.id, text="Ошибка ввода")
                 bot.register_next_step_handler(message=message, callback=exc_handler(method))
 
