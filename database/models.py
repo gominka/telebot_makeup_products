@@ -29,7 +29,7 @@ class User(BaseModel):
 
 
 class Favorite(BaseModel):
-    """Модель избранных товаров или условию"""
+    """Model of selected products or conditions"""
 
     user_id = IntegerField(null=False)
     brand = CharField(null=True)

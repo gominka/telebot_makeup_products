@@ -11,6 +11,7 @@ from user_interface import text
 
 @bot.callback_query_handler(func=lambda call: call.data in ["check_amount_products"])
 def check_amount_products(call: types.CallbackQuery) -> None:
+    """Processing of the output button with a callback check_amount_products"""
 
     user_id = call.from_user.id
     chat_id = call.message.chat.id
@@ -55,7 +56,7 @@ def check_amount_products(call: types.CallbackQuery) -> None:
 @bot.callback_query_handler(func=lambda call: call.data in ["favorite"])
 @exc_handler
 def favorite_command_handler(call: types.CallbackQuery) -> None:
-    """Обработчик, срабатываемый на нажитие клавиши favorite"""
+    """Processing of the output button with a callback favorite"""
 
     user_id = call.from_user.id
     chat_id = call.message.chat.id
@@ -71,9 +72,9 @@ def favorite_command_handler(call: types.CallbackQuery) -> None:
         elif search_cond == "product_type":
             Favorite(user_id=user_id, product_type=user_choice).save()
 
-        logger.info(f"The user {user_id} added to favorites: {search_cond}: {user_choice}")
+        logger.info(f"The user {user_id} added to favorites: {search_cond} {user_choice}")
 
-        bot.send_message(chat_id=chat_id, text=f"{search_cond}: {user_choice}")
+        bot.send_message(chat_id=chat_id, text=f"{search_cond}: {user_choice}successfully added to favorites ")
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["cancel_search_cond"])
@@ -88,7 +89,7 @@ def call_btn_file(call: types.CallbackQuery) -> None:
 
 @bot.callback_query_handler(func=lambda call: call.data in ["website_link"])
 def callback_web(call: types.CallbackQuery) -> None:
-    """Обработка нажатия кнопки, перехода на сайт"""
+    """Processing of a button click, a link to the site"""
 
     user_id = call.from_user.id
     chat_id = call.message.chat.id
