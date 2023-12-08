@@ -21,8 +21,8 @@ HELP_MSG = "List of available commands:" + MAIN_COMMANDS + FAV_COMMANDS
 CONDITION = "Select the command:" + MAIN_COMMANDS + SEARCH_COMMANDS + CUSTOM_COMMANDS + FAV_COMMANDS
 
 DESCRIPTION = "Product Description:\n\n" \
-              "{}\n" \
-              "Product Link:\n\n" \
+              "{}\n\n" \
+              "Product Link:\n" \
               "{}"
 
 # USER_HANDLER = "Что будем искать? " \

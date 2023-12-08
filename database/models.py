@@ -11,14 +11,14 @@ db = SqliteDatabase(DB_NAME)
 
 
 class BaseModel(Model):
-    """Базования модель"""
+    """Base Model"""
 
     class Meta:
         database = db
 
 
 class User(BaseModel):
-    """Класс описывающий, таблицу о пользователе в базе данных"""
+    """Model of users"""
 
     user_id = IntegerField(unique=True)
     username = CharField()

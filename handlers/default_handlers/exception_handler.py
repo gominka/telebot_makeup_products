@@ -13,7 +13,7 @@ from user_interface import text
 
 
 def exc_handler(method: Callable) -> Callable:
-    """ Декоратор. Логирует исключение вызванной функции, уведомляет пользователя об ошибке """
+    """ Decorator. Logs the exception to the called function, notifies the user of the error """
 
     @functools.wraps(method)
     def wrapped(message: Union[types.Message, types.CallbackQuery]) -> None:
@@ -27,10 +27,10 @@ def exc_handler(method: Callable) -> Callable:
                 exc_handler(method(message))
             else:
                 if str(exception) == 'Range Error':
-                    bot.send_message(chat_id=message.chat.id, text="Некорректнный ввод")
+                    bot.send_message(chat_id=message.chat.id, text="Enter a number")
                 else:
-                    "Отсутствие условий"
-                    bot.send_message(chat_id=message.chat.id, text="Ошибка ввода")
+                    bot.send_message(chat_id=message.chat.id, text="There are no conditions available")
+
                 bot.register_next_step_handler(message=message, callback=exc_handler(method))
 
         except IntegrityError:

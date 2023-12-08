@@ -33,14 +33,6 @@ def not_admin(message: Message):
     bot.send_message(message.chat.id, "You are not admin")
 
 
-@bot.message_handler(text=['hi'])  # Response to hi message
-def welcome_hi(message: Message):
-    bot.send_message(message.chat.id, 'You said hi')
-
-
-@bot.message_handler(text=['bye'])  # Response to bye message
-def bye_user(message: Message):
-    bot.send_message(message.chat.id, 'You said bye')
 
 
 # Do not forget to register filters

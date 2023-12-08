@@ -1,42 +1,54 @@
 # Telebot
 
-## Краткое описание
-Телеграмм-бот позволяет найти необходимое косметическое средство.
+## Short description
+Telegram bot allows you to find the necessary cosmetic product.
 
-## Описание команд
+## Description of the commands
 
-### Команда /start
+### Command /start
 
-   После выбора данной команды выводится сообщение, содержащее команды, необходимые для начала поиска, а также:
+  After selecting this command, a message is displayed containing the commands necessary to start the search, as well as:
+1. If the user is using the bot for the first time:
+   - The user is logged into the database;
+2. If the user has already used the bot:
+   - A command has been added to the message that allows you to view your favorite parameters.
 
-1. Если пользователь впервые пользуется ботом:
-   - Пользователь заносится в базу данных
-2. Если пользователь уже пользовался ботом:
-   - в отправленном сообщении, добавляется команда, позволяющая посмотреть избранные параметры
+### Commands /brand, /product_tag и /product_type
 
-### Команды /brand, /product_tag и /product_type
-
-   После выбора одной из команд:
-1. Выводиться список атрибутов
-2. Пользователь выбирает один из них 
-3. После этого необходимо выбрать условие для продолжения поиска
+   After selecting one of the commands:
+1. A list of attributes is displayed;
+2. The user selects one of them;
+3. After that, you must select a condition to continue the search.
    
-### Команды /high, /low
+### Commands /high, /low
 
-1. После выбора команды пользователь, с помощью кнопок выбирает: необходимо установить цену или рейтингу
-2. Вводит число
-3. После этого необходимо выбрать условие для продолжения поиска
+   After selecting a command, the user selects using the buttons:
+1. It is necessary to set a price or rating 
+2. Enter a number; 
+3. After that, you must select a condition to continue the search.
 
-### Команда /favourite
-   После выбора команды выводится избранные условия по категориям: бренды, типы, тэги и названия товаров
+### Command /favourite
 
+   After selecting the command, the selected conditions are displayed by category:
+   - brands; 
+   - types;
+   - tags;
+   - product names.
  
-### Команда /start_again
-   После выбора команды сбрасываютя все выбранные раннее условия и поиск начинается заново
+### Command /start_again
+   After selecting the command:
+
+1. All the previously selected conditions are reset
+2. The search starts anew
 
 
-Запрос условий продолжает пока:
- - пользователь не выберет команду "/start_again" и начнет поиск заново
- - кол-во товаров, удовлетворяющий условия поиска не достигнет 5. Если так происходит, то пользователю выводится этот список
+The request for conditions continues for now:
+
+ - The user will not select the "/start_again" command and start the search again;
+ - The number of products satisfying all the selected conditions will not reach 3.
+   - If this happens, the user selects the condition: 
+     - The user selects the desired name
+       - The description, product link and picture is displayed.
 
 API Endpoint = http://makeup-api.herokuapp.com/api/v1/products.json
+ 
