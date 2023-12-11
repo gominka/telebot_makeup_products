@@ -38,7 +38,7 @@ def select_condition(message: types.Message) -> None:
 
     bot.register_next_step_handler(msg, select_cond)
 
-
+@exc_handler
 def select_cond(message: types.Message) -> None:
     msg_user = int(message.text)
     user_id = message.from_user.id
@@ -47,8 +47,14 @@ def select_cond(message: types.Message) -> None:
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         if data["cond1"] == "rating" and 1 <= msg_user <= 10:
             cond = data["cond1"]+data["cond2"]
-            print(cond)
-            data["params"][cond] == msg_user
+            data["params"][cond] = msg_user
+            print(data["params"])
 
+    search_command_markup = types.InlineKeyboardMarkup(row_width=3)
+    custom_search = types.InlineKeyboardButton(text='Continue the search', callback_data="check_amount_products")
+    favourite = types.InlineKeyboardButton(text='Add to Favorites', callback_data="favorite")
+    cancel = types.InlineKeyboardButton(text='Cancel', callback_data='cancel_search_cond')
+    search_command_markup.add(custom_search, favourite, cancel)
+    bot.send_message(chat_id=chat_id, text="Select a condition ", reply_markup=search_command_markup)
 
 

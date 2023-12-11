@@ -31,11 +31,12 @@ def make_response(params: Dict, success=200):
 
 
 def conditions_list(params: dict, selected_condition: str) -> List:
-    """Составление списков
+    """Making lists
 
-    :param selected_condition: сообщение пользователя
-    :param params: выбранные параметры
-    :return: словарь, содержащий cписок возможных условий
+    :param selected_condition: user's message
+    :param params: selected parameters
+
+    :return: list of possible conditions
     """
 
     data = make_response(params)

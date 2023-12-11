@@ -7,6 +7,7 @@ from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
 from site_ip.main_handler import make_response
 from user_interface import text
+from user_interface.text import DESCRIPTION
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["check_amount_products"])
@@ -24,30 +25,14 @@ def check_amount_products(call: types.CallbackQuery) -> None:
         with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
             data["id"] = make_response(params=params)[0]["id"]
 
-        markup = types.InlineKeyboardMarkup(row_width=3)
-        name = types.InlineKeyboardButton(text='Вывести названия', callback_data="list_name_product")
-        description = types.InlineKeyboardButton(text='Вывести описание', callback_data="description")
-        image = types.InlineKeyboardButton(text='Показать картинку', callback_data="image")
-        product_link = types.InlineKeyboardButton(text='Ссылка на продукт ', callback_data="product_link")
-
-        cancel = types.InlineKeyboardButton(text='Отмена', callback_data="cancel")
-
-        markup.add(name, description, image, product_link, cancel)
-
-        bot.send_message(chat_id=chat_id, text="Выберите, что хотите сделать", reply_markup=markup)
+        bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
+            make_response(params=params)[0]["name"],
+            make_response(params=params)[0]["price"],
+            make_response(params=params)[0]["description"],
+            make_response(params=params)[0]["product_link"]))
 
     elif 1 <= len(make_response(params=params)) <= 3:
-
-        markup = types.InlineKeyboardMarkup(row_width=3)
-        name = types.InlineKeyboardButton(text='Вывести названия', callback_data="list_name_product")
-        cancel = types.InlineKeyboardButton(text='Отмена', callback_data="cancel")
-
-        markup.add(name,  cancel)
-
-        with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-            data["cond"] = "name_products"
-
-        bot.send_message(chat_id=chat_id, text="Выберите, что хотите сделать", reply_markup=markup)
+        print(make_response(params=params))
 
     else:
         bot.send_message(chat_id=call.message.chat.id, text=text.CONDITION)

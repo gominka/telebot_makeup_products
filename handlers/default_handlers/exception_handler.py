@@ -26,10 +26,8 @@ def exc_handler(method: Callable) -> Callable:
                 reset_data(message.chat.id)
                 exc_handler(method(message))
             else:
-                if str(exception) == 'Range Error':
-                    bot.send_message(chat_id=message.chat.id, text="Enter a number")
-                else:
-                    bot.send_message(chat_id=message.chat.id, text="There are no conditions available")
+                bot.send_message(chat_id=message.chat.id, text="Enter a number")
+
 
                 bot.register_next_step_handler(message=message, callback=exc_handler(method))
 
@@ -37,7 +35,7 @@ def exc_handler(method: Callable) -> Callable:
             bot.send_message(chat_id=message.chat.id, text=text.HELP_MSG)
 
         except Exception as exception:
-            bot.reply_to(message, "Для начала поиска нажмите. Напишите /start")
+            bot.reply_to(message, "To start the search, click /start")
 
             with open('errors_log.txt', 'a') as file:
                 file.write('\n'.join([ctime(time()), exception.__class__.__name__, traceback.format_exc(), '\n\n']))

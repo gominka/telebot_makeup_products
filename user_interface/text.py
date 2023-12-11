@@ -20,12 +20,11 @@ HELP_MSG = "List of available commands:" + MAIN_COMMANDS + FAV_COMMANDS
 
 CONDITION = "Select the command:" + MAIN_COMMANDS + SEARCH_COMMANDS + CUSTOM_COMMANDS + FAV_COMMANDS
 
-DESCRIPTION = "Product Description:\n\n" \
+DESCRIPTION = "Name: {}\n\n" \
+              "Price: {}\n\n" \
+              "Product Description:\n" \
               "{}\n\n" \
               "Product Link:\n" \
               "{}"
-
-# USER_HANDLER = "Что будем искать? " \
-#                "\n\n Напиши условие поиска."
 
 START_OVER = "Start the search again"

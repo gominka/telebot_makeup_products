@@ -50,18 +50,18 @@ def callback_search_command(call: types.CallbackQuery) -> None:
         data["params"][search_cond] = call.data
 
         search_command_markup = types.InlineKeyboardMarkup(row_width=3)
-        custom_search = types.InlineKeyboardButton(text='Продолжить поиск', callback_data="check_amount_products")
-        favourite = types.InlineKeyboardButton(text='Добавить в избранное', callback_data="favorite")
-        cancel = types.InlineKeyboardButton(text='Отмена', callback_data='cancel_search_cond')
+        custom_search = types.InlineKeyboardButton(text='Continue the search', callback_data="check_amount_products")
+        favourite = types.InlineKeyboardButton(text='Add to Favorites', callback_data="favorite")
+        cancel = types.InlineKeyboardButton(text='Cancel', callback_data='cancel_search_cond')
 
         if search_cond == "brand":
-            website = types.InlineKeyboardButton(text='Переход на сайт бренда', callback_data="website_link")
+            website = types.InlineKeyboardButton(text='Website brand', callback_data="website_link")
             search_command_markup.add(custom_search, favourite, website)
 
         else:
             search_command_markup.add(custom_search, favourite)
 
         search_command_markup.add(cancel)
-        bot.send_message(chat_id=chat_id, text="Что хотите сделать? ", reply_markup=search_command_markup)
+        bot.send_message(chat_id=chat_id, text="Select a condition ", reply_markup=search_command_markup)
 
         bot.set_state(user_id=user_id, state=states.custom_states.UserState.custom_state, chat_id=chat_id)
