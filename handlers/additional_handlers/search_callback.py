@@ -1,11 +1,11 @@
+from keyboa.keyboards import keyboa_maker
 from loguru import logger
 from telebot import types
 
 import states
-from database.models import Favorite
 from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
-from site_ip.main_handler import make_response
+from site_ip.main_handler import make_response, conditions_list
 from user_interface import text
 from user_interface.text import DESCRIPTION
 
@@ -22,9 +22,6 @@ def check_amount_products(call: types.CallbackQuery) -> None:
 
     if len(make_response(params=params)) == 1:
 
-        with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-            data["id"] = make_response(params=params)[0]["id"]
-
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
             make_response(params=params)[0]["name"],
             make_response(params=params)[0]["price"],
@@ -32,34 +29,36 @@ def check_amount_products(call: types.CallbackQuery) -> None:
             make_response(params=params)[0]["product_link"]))
 
     elif 1 <= len(make_response(params=params)) <= 3:
-        print(make_response(params=params))
+        kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition="list_name_product"),
+                               copy_text_to_callback=True, items_in_row=5)
+
+        bot.set_state(user_id=user_id, state=states.custom_states.UserState.final_selection, chat_id=chat_id)
+
+        bot.send_message(chat_id=chat_id, reply_markup=kb_cond, text="Select a name:  ")
 
     else:
         bot.send_message(chat_id=call.message.chat.id, text=text.CONDITION)
 
 
-@bot.callback_query_handler(func=lambda call: call.data in ["favorite"])
+@bot.callback_query_handler(func=lambda call: True, state=states.custom_states.UserState.final_selection)
 @exc_handler
-def favorite_command_handler(call: types.CallbackQuery) -> None:
-    """Processing of the output button with a callback favorite"""
+def callback_search_command(call: types.CallbackQuery) -> None:
+    """Processing button clicks, condition selection"""
 
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-        search_cond = data["search_cond"]
-        user_choice = data["params"][search_cond]
+        data["params"]["name"] = call.data
+        params = data["params"]
 
-        if search_cond == "brand":
-            Favorite(user_id=user_id, brand=user_choice).save()
-        elif search_cond == "product_tag":
-            Favorite(user_id=user_id, product_tag=user_choice).save()
-        elif search_cond == "product_type":
-            Favorite(user_id=user_id, product_type=user_choice).save()
+        bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
+            make_response(params=params)[0]["name"],
+            make_response(params=params)[0]["price"],
+            make_response(params=params)[0]["description"],
+            make_response(params=params)[0]["product_link"]))
 
-        logger.info(f"The user {user_id} added to favorites: {search_cond} {user_choice}")
-
-        bot.send_message(chat_id=chat_id, text=f"{search_cond}: {user_choice}successfully added to favorites ")
+    bot.set_state(user_id=user_id, state=states.custom_states.UserState.custom_state, chat_id=chat_id)
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ["cancel_search_cond"])

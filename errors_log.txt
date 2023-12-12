@@ -1,129 +1,4 @@
-Thu Dec  7 20:13:34 2023
-KeyError
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
-
-
-
-Fri Dec  8 16:31:21 2023
-KeyError
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
-
-
-
-Fri Dec  8 16:36:12 2023
-KeyError
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
-
-
-
-Fri Dec  8 16:39:46 2023
-KeyError
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
-
-
-
-Fri Dec  8 16:41:28 2023
-KeyError
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
-
-
-
-Fri Dec  8 18:16:23 2023
+Mon Dec 11 13:16:22 2023
 KeyError
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 19, in main_search_command
@@ -134,7 +9,7 @@ TypeError: 'NoneType' object does not support item assignment
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
     method(message)
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 17, in main_search_command
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
@@ -148,57 +23,315 @@ KeyError: 439024736
 
 
 
-Fri Dec  8 18:51:30 2023
-KeyError
+Mon Dec 11 13:16:26 2023
+IntegrityError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
 
 
 
-Fri Dec  8 18:56:24 2023
-KeyError
+Mon Dec 11 13:16:28 2023
+IntegrityError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
-    data["search_cond"] = msg_user
-    ~~~~^^^^^^^^^^^^^^^
-TypeError: 'NoneType' object does not support item assignment
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
-    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
-    return self.obj.save(self.chat_id, self.user_id, self.data)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
-    self.data[chat_id][user_id]['data'] = data
-    ~~~~~~~~~^^^^^^^^^
-KeyError: 439024736
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
 
 
 
-Sat Dec  9 16:39:54 2023
+Mon Dec 11 13:16:29 2023
+IntegrityError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
+
+
+
+Mon Dec 11 13:16:30 2023
+IntegrityError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
+
+
+
+Mon Dec 11 13:16:31 2023
+IntegrityError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
+
+
+
+Mon Dec 11 13:16:32 2023
+IntegrityError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
+
+
+
+Mon Dec 11 13:16:32 2023
+IntegrityError
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+sqlite3.IntegrityError: UNIQUE constraint failed: user.user_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 17, in wrapped
+    method(message)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\start_commands.py", line 25, in start_command_handler
+    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 6806, in save
+    pk = self.insert(**field_dict).execute()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 1971, in inner
+    return method(self, database, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2042, in execute
+    return self._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2847, in _execute
+    return super(Insert, self)._execute(database)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 2560, in _execute
+    cursor = database.execute(self)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3259, in execute
+    return self.execute_sql(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3249, in execute_sql
+    with __exception_wrapper__:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3019, in __exit__
+    reraise(new_type, new_type(exc_value, *exc_args), traceback)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 192, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\peewee.py", line 3251, in execute_sql
+    cursor.execute(sql, params or ())
+peewee.IntegrityError: UNIQUE constraint failed: user.user_id
+
+
+
+Mon Dec 11 13:19:32 2023
 KeyError
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 19, in main_search_command
@@ -209,7 +342,7 @@ TypeError: 'NoneType' object does not support item assignment
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 17, in main_search_command
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
@@ -223,7 +356,7 @@ KeyError: 439024736
 
 
 
-Sat Dec  9 16:48:30 2023
+Mon Dec 11 13:20:16 2023
 KeyError
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 19, in main_search_command
@@ -234,7 +367,7 @@ TypeError: 'NoneType' object does not support item assignment
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 17, in main_search_command
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
@@ -248,81 +381,7 @@ KeyError: 439024736
 
 
 
-Sat Dec  9 16:48:45 2023
-ReadTimeout
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
-    method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
-
-
-
-Sat Dec  9 17:07:00 2023
+Mon Dec 11 13:21:26 2023
 KeyError
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
@@ -333,7 +392,7 @@ TypeError: 'NoneType' object does not support item assignment
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
   File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
@@ -347,388 +406,153 @@ KeyError: 439024736
 
 
 
-Sat Dec  9 17:07:13 2023
-ReadTimeout
+Mon Dec 11 13:22:55 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 19, in main_search_command
+    data["cond2"] = "_less_than"
+    ~~~~^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 17, in main_search_command
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 
-Sat Dec  9 17:07:30 2023
-ReadTimeout
+Mon Dec 11 13:26:09 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 19, in main_search_command
+    data["cond2"] = "_less_than"
+    ~~~~^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\additional_handlers\price_rating.py", line 17, in main_search_command
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 
-Sat Dec  9 17:07:44 2023
-ReadTimeout
+Mon Dec 11 13:40:57 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
+    data["search_cond"] = msg_user
+    ~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 
-Sat Dec  9 17:10:39 2023
-ReadTimeout
+Mon Dec 11 13:47:34 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
+    data["search_cond"] = msg_user
+    ~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 
-Sat Dec  9 17:10:54 2023
-ReadTimeout
+Tue Dec 12 13:53:59 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-               ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 1378, in getresponse
-    response.begin()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-                              ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\http\client.py", line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 706, in readinto
-    return self._sock.recv_into(b)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
-    raise value
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 538, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\urllib3\connectionpool.py", line 370, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
+    data["search_cond"] = msg_user
+    ~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 42, in conditions_list
-    data = make_response(params)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 24, in make_response
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\requests\adapters.py", line 532, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='makeup-api.herokuapp.com', port=80): Read timed out. (read timeout=10)
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 
-Sat Dec  9 17:11:03 2023
-TypeError
+Tue Dec 12 14:18:35 2023
+KeyError
 Traceback (most recent call last):
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 21, in wrapped
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 22, in search_command_handler
+    data["search_cond"] = msg_user
+    ~~~~^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\exception_handler.py", line 20, in wrapped
     method(message)
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 32, in search_command_handler
-    kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition=search_cond),
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\user\PycharmProjects\python_basic_diploma\site_ip\main_handler.py", line 45, in conditions_list
-    brands = sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))
-                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: 'int' object is not iterable
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\handlers\default_handlers\search_commands.py", line 21, in search_command_handler
+    with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\base_storage.py", line 68, in __exit__
+    return self.obj.save(self.chat_id, self.user_id, self.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\python_basic_diploma\venv\Lib\site-packages\telebot\storage\memory_storage.py", line 69, in save
+    self.data[chat_id][user_id]['data'] = data
+    ~~~~~~~~~^^^^^^^^^
+KeyError: 439024736
 
 
 

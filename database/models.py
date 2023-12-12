@@ -28,14 +28,5 @@ class User(BaseModel):
         return self.user_id
 
 
-class Favorite(BaseModel):
-    """Model of selected products or conditions"""
-
-    user_id = IntegerField(null=False)
-    brand = CharField(null=True)
-    product_tag = CharField(null=True)
-    product_type = CharField(null=True)
-
-
 def create_models():
     db.create_tables(BaseModel.__subclasses__())

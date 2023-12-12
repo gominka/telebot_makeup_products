@@ -9,6 +9,7 @@ import requests
 
 BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json"
 BASE_PARAMS = {
+    "name": None,
     "product_type": None,
     "product_category": None,
     "product_tags": None,
@@ -54,8 +55,8 @@ def conditions_list(params: dict, selected_condition: str) -> List:
         return product_types
 
     elif selected_condition == "list_name_product":
-        product_types = sorted(list(set([item['name'] for item in data if item['name'] is not None])))
-        return product_types
+        name_product = sorted(list(set([item['name'] for item in data if item['name'] is not None])))
+        return name_product
 
     elif selected_condition == "all_condition":
         brands = sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))

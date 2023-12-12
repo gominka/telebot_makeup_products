@@ -6,7 +6,6 @@ import functools
 from peewee import IntegrityError
 from telebot import types
 
-from database.models import Favorite
 from keyboards.reply.reply_keyboards import get_reply_keyboard
 from loader import bot
 from user_interface import text
@@ -23,11 +22,10 @@ def exc_handler(method: Callable) -> Callable:
             if isinstance(message, types.CallbackQuery):
                 message = message.message
             if exception.__class__.__name__ == 'JSONDecodeError':
-                reset_data(message.chat.id)
                 exc_handler(method(message))
             else:
-                bot.send_message(chat_id=message.chat.id, text="Enter a number")
-
+                if str(exception) == 'Range Error':
+                    bot.send_message(chat_id=message.chat.id, text="Enter a number")
 
                 bot.register_next_step_handler(message=message, callback=exc_handler(method))
 
@@ -42,10 +40,3 @@ def exc_handler(method: Callable) -> Callable:
             sleep(1)
 
     return wrapped
-
-
-def reset_data(user_id: int) -> None:
-    """Сброс данных пользователя"""
-
-    user = Favorite.get(Favorite.user_id == user_id)
-    user.delete_instance()

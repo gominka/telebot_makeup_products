@@ -5,5 +5,6 @@ class UserState(StatesGroup):
     search_state = State()
     condition_selection = State()
     custom_state = State()
+    final_selection = State()
 
 
