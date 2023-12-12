@@ -1,12 +1,11 @@
 from keyboa.keyboards import keyboa_maker
-from loguru import logger
 
 from telebot import types
 
 import states
 from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
-from site_ip.main_handler import BASE_PARAMS, conditions_list
+from site_ip.main_request import BASE_PARAMS, conditions_list
 
 
 @bot.message_handler(commands=['brand', 'product_tag', 'product_type'], state="*")

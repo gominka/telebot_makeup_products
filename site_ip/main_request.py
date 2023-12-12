@@ -1,7 +1,3 @@
-"""
-    Модуль main_request.py
-    Описывает взаимодействие с сайтом
-"""
 import json
 from typing import Dict, List
 

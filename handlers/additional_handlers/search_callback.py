@@ -1,11 +1,10 @@
 from keyboa.keyboards import keyboa_maker
-from loguru import logger
 from telebot import types
 
 import states
 from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
-from site_ip.main_handler import make_response, conditions_list
+from site_ip.main_request import make_response, conditions_list
 from user_interface import text
 from user_interface.text import DESCRIPTION
 

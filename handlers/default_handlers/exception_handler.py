@@ -32,11 +32,7 @@ def exc_handler(method: Callable) -> Callable:
         except IntegrityError:
             bot.send_message(chat_id=message.chat.id, text=text.HELP_MSG)
 
-        except Exception as exception:
+        except Exception:
             bot.reply_to(message, "To start the search, click /start")
-
-            with open('errors_log.txt', 'a') as file:
-                file.write('\n'.join([ctime(time()), exception.__class__.__name__, traceback.format_exc(), '\n\n']))
-            sleep(1)
 
     return wrapped
