@@ -22,19 +22,21 @@ def check_amount_products(call: types.CallbackQuery) -> None:
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         params = data["params"]
-        responce = make_response(params=params)
+        response = make_response(params=params)
 
-    if len(responce) == 1:
+    if len(response) == 1:
 
-        Selections(user_id=user_id, product_name=responce[0]["name"]).save()
+        selected_product = response[0]
+
+        Selections(user_id=user_id, product_name=selected_product["name"]).save()
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
-            resp[0]["name"],
-            resp[0]["price"],
-            resp[0]["description"],
-            resp[0]["product_link"]))
+            selected_product["name"],
+            selected_product["price"],
+            selected_product["description"],
+            selected_product["product_link"]))
 
-    elif 1 <= len(resp) <= 3:
+    elif 1 <= len(response) <= 3:
         kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition="list_name_product"),
                                copy_text_to_callback=True, items_in_row=5)
 
@@ -57,18 +59,16 @@ def callback_search_command(call: types.CallbackQuery) -> None:
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["params"]["name"] = call.data
         params = data["params"]
-        prod = make_response(params=params)[0]
-        prod_name = prod["name"]
-        print(prod_name)
-        date = datetime.datetime.now
+        selected_product = make_response(params=params)[0]
 
-        Selections(user_id=user_id, product_name=prod_name, selection_data=date).save()
+        Selections(user_id=user_id, product_name=selected_product["name"]).save()
+
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
-            prod_name,
-            make_response(params=params)[0]["price"],
-            make_response(params=params)[0]["description"],
-            make_response(params=params)[0]["product_link"]))
+            selected_product["name"],
+            selected_product["price"],
+            selected_product["description"],
+            selected_product["product_link"]))
 
     bot.set_state(user_id=user_id, state=states.custom_states.UserState.custom_state, chat_id=chat_id)
 
