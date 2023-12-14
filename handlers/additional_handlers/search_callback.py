@@ -19,20 +19,22 @@ def check_amount_products(call: types.CallbackQuery) -> None:
     user_id = call.from_user.id
     chat_id = call.message.chat.id
 
+
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         params = data["params"]
-        prod_name = make_response(params=params)[0]["name"]
+        responce = make_response(params=params)
 
-    if len(make_response(params=params)) == 1:
-        Selections(user_id=user_id, product_name=prod_name, selection_data=datetime.datetime.now).save()
+    if len(responce) == 1:
+
+        Selections(user_id=user_id, product_name=responce[0]["name"]).save()
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
-            prod_name,
-            make_response(params=params)[0]["price"],
-            make_response(params=params)[0]["description"],
-            make_response(params=params)[0]["product_link"]))
+            resp[0]["name"],
+            resp[0]["price"],
+            resp[0]["description"],
+            resp[0]["product_link"]))
 
-    elif 1 <= len(make_response(params=params)) <= 3:
+    elif 1 <= len(resp) <= 3:
         kb_cond = keyboa_maker(items=conditions_list(params=params, selected_condition="list_name_product"),
                                copy_text_to_callback=True, items_in_row=5)
 
@@ -55,9 +57,12 @@ def callback_search_command(call: types.CallbackQuery) -> None:
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["params"]["name"] = call.data
         params = data["params"]
-        prod_name = make_response(params=params)[0]["name"]
+        prod = make_response(params=params)[0]
+        prod_name = prod["name"]
+        print(prod_name)
+        date = datetime.datetime.now
 
-        Selections(user_id=user_id, product_name=prod_name, selection_data=datetime.datetime.now).save()
+        Selections(user_id=user_id, product_name=prod_name, selection_data=date).save()
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
             prod_name,

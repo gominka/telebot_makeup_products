@@ -1,9 +1,11 @@
+import datetime
+
 from peewee import (
     CharField,
     IntegerField,
     Model,
     SqliteDatabase,
-    DateTimeField
+    DateTimeField, AutoField
 )
 
 from config_data.config import DB_NAME
@@ -32,9 +34,10 @@ class User(BaseModel):
 class Selections(BaseModel):
     """Model of users selections"""
 
+    select_id = AutoField()
     user_id = IntegerField()
     product_name = CharField()
-    selection_date = DateTimeField()
+    selection_date = DateTimeField(default=datetime.datetime.now)
 
 
 def create_models():
