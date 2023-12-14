@@ -2,7 +2,8 @@ from peewee import (
     CharField,
     IntegerField,
     Model,
-    SqliteDatabase
+    SqliteDatabase,
+    DateTimeField
 )
 
 from config_data.config import DB_NAME
@@ -26,6 +27,14 @@ class User(BaseModel):
 
     def __str__(self):
         return self.user_id
+
+
+class Selections(BaseModel):
+    """Model of users selections"""
+
+    user_id = IntegerField()
+    product_name = CharField()
+    selection_date = DateTimeField()
 
 
 def create_models():

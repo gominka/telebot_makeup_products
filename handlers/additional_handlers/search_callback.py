@@ -1,7 +1,10 @@
+import datetime
+
 from keyboa.keyboards import keyboa_maker
 from telebot import types
 
 import states
+from database.models import Selections
 from handlers.default_handlers.exception_handler import exc_handler
 from loader import bot
 from site_ip.main_request import make_response, conditions_list
@@ -18,11 +21,13 @@ def check_amount_products(call: types.CallbackQuery) -> None:
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         params = data["params"]
+        prod_name = make_response(params=params)[0]["name"]
 
     if len(make_response(params=params)) == 1:
+        Selections(user_id=user_id, product_name=prod_name, selection_data=datetime.datetime.now).save()
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
-            make_response(params=params)[0]["name"],
+            prod_name,
             make_response(params=params)[0]["price"],
             make_response(params=params)[0]["description"],
             make_response(params=params)[0]["product_link"]))
@@ -50,9 +55,12 @@ def callback_search_command(call: types.CallbackQuery) -> None:
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
         data["params"]["name"] = call.data
         params = data["params"]
+        prod_name = make_response(params=params)[0]["name"]
+
+        Selections(user_id=user_id, product_name=prod_name, selection_data=datetime.datetime.now).save()
 
         bot.send_message(chat_id=chat_id, text=DESCRIPTION.format(
-            make_response(params=params)[0]["name"],
+            prod_name,
             make_response(params=params)[0]["price"],
             make_response(params=params)[0]["description"],
             make_response(params=params)[0]["product_link"]))
