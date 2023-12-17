@@ -1,9 +1,16 @@
 import json
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import requests
+from requests.exceptions import RequestException, Timeout, HTTPError, ConnectTimeout
+
+from handlers.default_handlers.exception_handler import handle_request_errors
+
+TIMEOUT = 10
 
 BASE_URL = "http://makeup-api.herokuapp.com/api/v1/products.json"
+DEFAULT_SUCCESS_CODE = requests.codes.ok
+
 BASE_PARAMS = {
     "name": None,
     "product_type": None,
@@ -16,43 +23,35 @@ BASE_PARAMS = {
     "rating_less_than": None
 }
 
+@handle_request_errors
+def make_response(params: Dict[str, Optional[str]], success_code: int = DEFAULT_SUCCESS_CODE) -> Optional[Dict]:
+    response = requests.get(BASE_URL, params=params, timeout=TIMEOUT)
+    response.raise_for_status()
 
-def make_response(params: Dict, success=200):
-    response = requests.request("GET", BASE_URL, params=params, timeout=10)
-    status_code = response.status_code
-
-    if status_code == success:
+    if response.status_code == success_code:
         return json.loads(response.text)
 
-    return status_code
+    return None
 
-
-def conditions_list(params: dict, selected_condition: str) -> List:
-    """Making lists
-
-    :param selected_condition: user's message
-    :param params: selected parameters
-
-    :return: list of possible conditions
-    """
-
+@handle_request_errors
+def get_conditions_list(params: dict, selected_condition: str) -> List:
     data = make_response(params)
 
+    if not data:
+        # Handle the case when the API request fails
+        return []
+
     if selected_condition == "brand":
-        brands = sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))
-        return brands
+        return sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))
 
     elif selected_condition == "product_tag":
-        tags = sorted(list(set([tag for item in data for tag in item['tag_list'] if item['tag_list']])))
-        return tags
+        return sorted(list(set([tag for item in data for tag in item['tag_list'] if item['tag_list']])))
 
     elif selected_condition == "product_type":
-        product_types = sorted(list(set([item['product_type'] for item in data if item['product_type'] is not None])))
-        return product_types
+        return sorted(list(set([item['product_type'] for item in data if item['product_type'] is not None])))
 
     elif selected_condition == "list_name_product":
-        name_product = sorted(list(set([item['name'] for item in data if item['name'] is not None])))
-        return name_product
+        return sorted(list(set([item['name'] for item in data if item['name'] is not None])))
 
     elif selected_condition == "all_condition":
         brands = sorted(list(set([item['brand'] for item in data if item['brand'] is not None])))

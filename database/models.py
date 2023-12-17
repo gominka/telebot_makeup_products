@@ -1,11 +1,12 @@
 import datetime
 
 from peewee import (
+    AutoField,
     CharField,
+    DateTimeField,
     IntegerField,
     Model,
     SqliteDatabase,
-    DateTimeField, AutoField
 )
 
 from config_data.config import DB_NAME
@@ -28,7 +29,7 @@ class User(BaseModel):
     first_name = CharField()
 
     def __str__(self):
-        return self.user_id
+        return f"{self.user_id} - {self.username}"
 
 
 class Selections(BaseModel):
@@ -41,4 +42,4 @@ class Selections(BaseModel):
 
 
 def create_models():
-    db.create_tables(BaseModel.__subclasses__())
+    db.create_tables(BaseModel.__subclasses__(), safe=True)
