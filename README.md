@@ -10,6 +10,9 @@ Telegram bot allows you to find the necessary cosmetic product.
   After selecting this command, a message is displayed containing the commands necessary to start the search, as well as:
 1. If the user is using the bot for the first time:
    - The user is logged into the database;
+2. if the user has already used the bot:
+   - the /history is added to the available commands
+
 
 ### Commands /brand, /product_tag и /product_type
 
@@ -30,6 +33,10 @@ Telegram bot allows you to find the necessary cosmetic product.
 
 1. All the previously selected conditions are reset
 2. The search starts anew
+
+### Command /history
+   After selecting the command:
+1. The products selected earlier are displayed
 
 
 The request for conditions continues for now:
