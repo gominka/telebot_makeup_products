@@ -53,7 +53,7 @@ def exc_handler(method: Callable) -> Callable:
         except IntegrityError:
             bot.send_message(chat_id=message.chat.id, text=text.HELP_MSG)
 
-        except Exception as e:
+        except Exception:
             logger.exception("An unexpected error occurred:")
             bot.reply_to(message, "To start the search, click /start")
 

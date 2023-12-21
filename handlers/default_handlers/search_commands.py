@@ -6,10 +6,6 @@ from keyboards.inline.search_keyboards import create_search_command_keyboard, cr
 from loader import bot
 from site_ip.main_request import BASE_PARAMS
 
-# Define constants for command strings
-BRAND_COMMAND = '/brand'
-PRODUCT_TAG_COMMAND = '/product_tag'
-PRODUCT_TYPE_COMMAND = '/product_type'
 
 # Define constant for the continue search callback
 CHECK_AMOUNT_PRODUCTS_CALLBACK = 'check_amount_products'

@@ -8,5 +8,6 @@ class UserState(StatesGroup):
     number_selection = State()
     check_number_selection = State()
     final_selection = State()
+    product_details = State()
 
 

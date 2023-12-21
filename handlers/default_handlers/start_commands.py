@@ -15,7 +15,6 @@ def start_command_handler(message: Message) -> None:
 
     bot.set_state(user_id=user_id, state=states.custom_states.UserState.search_state, chat_id=chat_id)
     create_and_save_user(user_id, username, first_name, last_name)
-    User(user_id=user_id, username=username, first_name=first_name, last_name=last_name).save()
     logger.info(f'A new user has been added. User_id: {user_id}')
 
     bot.send_message(chat_id=message.chat.id, text=text.START_MSG)

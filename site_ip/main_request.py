@@ -23,6 +23,7 @@ BASE_PARAMS = {
     "rating_less_than": None
 }
 
+
 @handle_request_errors
 def make_response(params: Dict[str, Optional[str]], success_code: int = DEFAULT_SUCCESS_CODE) -> Optional[Dict]:
     response = requests.get(BASE_URL, params=params, timeout=TIMEOUT)
@@ -32,6 +33,7 @@ def make_response(params: Dict[str, Optional[str]], success_code: int = DEFAULT_
         return json.loads(response.text)
 
     return None
+
 
 @handle_request_errors
 def get_conditions_list(params: dict, selected_condition: str) -> List:
@@ -58,4 +60,3 @@ def get_conditions_list(params: dict, selected_condition: str) -> List:
         tags = sorted(list(set([tag for item in data for tag in item['tag_list'] if item['tag_list']])))
         product_types = sorted(list(set([item['product_type'] for item in data if item['product_type'] is not None])))
         return brands + tags + product_types
-

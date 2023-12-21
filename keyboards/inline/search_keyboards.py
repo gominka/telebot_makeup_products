@@ -18,7 +18,6 @@ def create_name_selection_keyboard(params, selected_condition):
     :param selected_condition: The currently selected condition.
     :return: InlineKeyboardMarkup.
     """
-    # Use the conditions_list to generate the keyboard
     return keyboa_maker(items=get_conditions_list(params=params, selected_condition=selected_condition),
                         copy_text_to_callback=True, items_in_row=5)
 
@@ -47,11 +46,11 @@ def create_search_command_keyboard(search_cond):
 
 def create_website_link_keyboard(link):
     """Create a keyboard for a website link."""
-    urlkb = types.InlineKeyboardMarkup()
+    url_kb = types.InlineKeyboardMarkup()
     url_button = types.InlineKeyboardButton(text=GO_TO_WEBSITE_TEXT, url=link)
     cancel_button = types.InlineKeyboardButton(text=CANCEL_TEXT, callback_data='cancel')
-    urlkb.add(url_button, cancel_button)
-    return urlkb
+    url_kb.add(url_button, cancel_button)
+    return url_kb
 
 
 def create_command_keyboard():

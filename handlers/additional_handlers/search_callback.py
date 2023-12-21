@@ -1,7 +1,7 @@
 from telebot import types
 
 import states
-from database.models import Selections
+from database.models import History
 from handlers.default_handlers.exception_handler import exc_handler
 from keyboards.inline.search_keyboards import create_website_link_keyboard, create_name_selection_keyboard
 from loader import bot
@@ -28,7 +28,7 @@ def get_user_data(user_id, chat_id):
 
 def handle_single_product_response(selected_product, user_id, chat_id):
     """Handle response when only one product is available."""
-    Selections(user_id=user_id, product_name=selected_product["name"]).save()
+    History(user_id=user_id, product_name=selected_product["name"]).save()
     send_product_details(chat_id, selected_product)
 
 
@@ -62,7 +62,8 @@ def check_amount_products_callback(call: types.CallbackQuery) -> None:
         response = make_response(params=params)
 
     if len(response) == 1:
-        handle_single_product_response(response[0], user_id, chat_id)
+        History(user_id=user_id, product_name=response[0]["name"]).save()
+        send_product_details(chat_id, response[0])
     elif 1 <= len(response) <= 3:
         handle_multiple_products_response(params, user_id, chat_id)
     else:
@@ -81,7 +82,7 @@ def callback_search_command(call: types.CallbackQuery) -> None:
         params = data["params"]
         selected_product = make_response(params=params)[0]
 
-        Selections(user_id=user_id, product_name=selected_product["name"]).save()
+        History(user_id=user_id, product_name=selected_product["name"]).save()
 
         send_product_details(chat_id, selected_product)
 
@@ -92,6 +93,12 @@ def callback_search_command(call: types.CallbackQuery) -> None:
 @exc_handler
 def call_btn_file(call: types.CallbackQuery) -> None:
     bot.set_state(user_id=call.from_user.id, state=CONDITION_SELECTION_STATE, chat_id=call.message.chat.id)
+    bot.delete_message(call.message.chat.id, call.message.id)
+
+
+@bot.callback_query_handler(func=lambda call: call.data in ["cancel"])
+@exc_handler
+def call_btn_file(call: types.CallbackQuery) -> None:
     bot.delete_message(call.message.chat.id, call.message.id)
 
 
