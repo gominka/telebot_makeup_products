@@ -16,4 +16,3 @@ DEFAULT_COMMANDS = (
     ("product_type", "Type selection"),
     ("start_again", "Start again")
 )
-
