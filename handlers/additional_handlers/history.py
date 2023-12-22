@@ -6,9 +6,7 @@ import states
 from database.models import History
 from handlers.additional_handlers.search_callback import send_product_details
 from handlers.default_handlers.exception_handler import exc_handler
-from keyboards.inline.search_keyboards import create_name_selection_keyboard
 from site_ip.main_request import make_response, BASE_PARAMS
-from user_interface import text
 from loader import bot
 
 
@@ -17,10 +15,7 @@ from loader import bot
 def start_command_handler(message: Message) -> None:
     """Handler for the /start command."""
 
-    product_names = []
-
-    for name in History.select().where(History.user_id == message.from_user.id):
-        product_names.append(name.product_name)
+    product_names = [name for name in History.select().where(History.user_id == message.from_user.id)]
 
     bot.send_message(message.chat.id, text="You have previously selected the following products:\n\n",
                      reply_markup=keyboa_maker(items=product_names,

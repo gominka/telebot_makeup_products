@@ -16,7 +16,6 @@ def send_message_with_keyboard(chat_id, text, keyboard):
 
 
 def handle_search_command(message, condition_suffix):
-    msg_user = message.text[1:]
     user_id, chat_id = message.from_user.id, message.chat.id
 
     with bot.retrieve_data(user_id=user_id, chat_id=chat_id) as data:
