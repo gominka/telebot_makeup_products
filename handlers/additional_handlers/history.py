@@ -15,10 +15,10 @@ from loader import bot
 def start_command_handler(message: Message) -> None:
     """Handler for the /start command."""
 
-    product_names = [name for name in History.select().where(History.user_id == message.from_user.id)]
+    product_names = set([name for name in History.select().where(History.user_id == message.from_user.id)])
 
     bot.send_message(message.chat.id, text="You have previously selected the following products:\n\n",
-                     reply_markup=keyboa_maker(items=product_names,
+                     reply_markup=keyboa_maker(items=list(product_names),
                                                copy_text_to_callback=True, items_in_row=5))
 
     bot.set_state(user_id=message.from_user.id,
